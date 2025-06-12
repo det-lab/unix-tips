@@ -1,0 +1,924 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../03_command_history/">
+      
+      
+        <link rel="next" href="../05_searching_and_editing/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>File Operations - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#working-with-files-copy-move-and-remove" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File Operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_summary_and_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_command_history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    File Operations
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Operations
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-files-with-touch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating files with touch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating files with touch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-touch-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful touch Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-folders-with-mkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making folders with mkdir
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making folders with mkdir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-mkdir-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful mkdir Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-files-with-cp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying files with cp
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Copying files with cp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-cp-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful cp Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-or-rename-files-with-mv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move or rename files with mv
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Move or rename files with mv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-mv-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful mv Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-files-with-rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete files with rm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delete files with rm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-rm-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful rm Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#destroy-files-with-shred" class="md-nav__link">
+    <span class="md-ellipsis">
+      Destroy files with shred
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Destroy files with shred">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-shred-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Shred Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_searching_and_editing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching and Editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-files-with-touch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating files with touch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating files with touch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-touch-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful touch Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-folders-with-mkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making folders with mkdir
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making folders with mkdir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-mkdir-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful mkdir Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-files-with-cp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying files with cp
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Copying files with cp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-cp-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful cp Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-or-rename-files-with-mv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move or rename files with mv
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Move or rename files with mv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-mv-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful mv Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-files-with-rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete files with rm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delete files with rm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-rm-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful rm Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#destroy-files-with-shred" class="md-nav__link">
+    <span class="md-ellipsis">
+      Destroy files with shred
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Destroy files with shred">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-shred-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Shred Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="working-with-files-copy-move-and-remove">Working with Files: Copy, Move, and Remove</h1>
+<p>File operations are fundamental to using the Unix shell effectively. Whether you're managing project files, organizing backups, or scripting automation tasks, mastering a few essential commands can greatly streamline your workflow.</p>
+<h2 id="creating-files-with-touch">Creating files with <code>touch</code></h2>
+<p>The <code>touch</code> command follows the basic format of:</p>
+<pre><code class="language-bash">touch [OPTION] FILE
+</code></pre>
+<p>The command updates the access and modification times of the selected file to the current time. It can also be used to create a new file if the <code>FILE</code> argument does not exist.</p>
+<h3 id="useful-touch-options">Useful <code>touch</code> Options</h3>
+<p>While there aren't options to influence the creation of a new file with <code>touch</code> (aside from <strong>not</strong> creating one using <code>-c</code> or <code>--no-create</code>), there are options to modify the access and modification times of an existing file, such as:</p>
+<ul>
+<li>
+<p><code>-a</code>: Change only the access time.</p>
+</li>
+<li>
+<p><code>-d [STRING]</code> or <code>--date=STRING</code>: Parse <code>STRING</code> and use it instead of the current time. </p>
+<blockquote>
+<p><code>STRING</code> must be in the format <code>[[CC]YY]MMDD</code>. If <code>YY</code> is specified but <code>CC</code> is not, a value for <code>YY</code> between 69 and 99 results in a <code>CC</code> value of 19. Otherwise, <code>CC</code> defaults to a value of 20. So, if you wanted to change the last modified date of a file to January 1st, 2018, you would use the command:</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="language-bash">touch -d 20180101 example.txt
+</code></pre>
+<ul>
+<li>
+<p><code>-h</code> or <code>--no-dereference</code>: This command affects symbolic links instead of referenced files.</p>
+</li>
+<li>
+<p><code>-m</code>: Changes the modification time to the current time.</p>
+</li>
+<li>
+<p><code>-t [STAMP]</code>: Parse a <code>STAMP</code> of the format <code>[[CC]YY]MMDDhhmm[.SS]</code> to be the new modification time.</p>
+<blockquote>
+<p>The same rules apply for the <code>[[CC]YY]MMDD</code> part of the argument. The <code>hh</code> argument uses a 24 hour clock (from 00 to 23). If you wished to change the modified date of a file to January 1st, 2018, at 5:28:30pm, you could use the command:</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="language-bash">touch -d 201801011728.30 example.txt
+</code></pre>
+<p>For more information on the basics of text editors which you can use to edit the contents of a file, you can follow <a href="https://det-lab.github.io/terminal-text-editors/">this link to a short series of lessons</a> on three of the most popular text editors, <code>nano</code>, <code>Vim</code>, and <code>Emacs</code>.</p>
+<h2 id="making-folders-with-mkdir">Making folders with <code>mkdir</code></h2>
+<p>The <code>mkdir</code> command will create a new folder if one does not already exist. It follows the basic format of:</p>
+<pre><code class="language-bash">mkdir [OPTION] DIRECTORY
+</code></pre>
+<h3 id="useful-mkdir-options">Useful <code>mkdir</code> Options</h3>
+<ul>
+<li><code>-p</code> or <code>--parents</code>: Creates parent directories if necessary. For instance, running the following from a folder where <code>testdir</code> doesn't exist will create three total directories:</li>
+</ul>
+<pre><code class="language-bash">mkdir -p testdir/subdir/exampledir
+</code></pre>
+<ul>
+<li><code>-v</code>: Print a message for each created directory. This can be useful for automated scripts to show everything that gets created, potentially helping to find errors in directory creation.</li>
+</ul>
+<h2 id="copying-files-with-cp">Copying files with <code>cp</code></h2>
+<p><code>cp</code> copies files or directories. The basic usage looks like:</p>
+<pre><code class="language-bash">cp [OPTION] SOURCE DEST
+</code></pre>
+<p>Where <code>SOURCE</code> and <code>DEST</code> would be the old and new filenames if you're copying the file to the same directory. For instance, if you're just copying a file to the same directory and changing its name, that would look like:</p>
+<pre><code class="language-bash">cp oldfile.txt backup.txt
+</code></pre>
+<p>You can also copy the original file into a new folder by setting <code>DEST</code> as the path, such as in:</p>
+<pre><code class="language-bash">mkdir testdir
+cp oldfile.txt testdir/
+</code></pre>
+<p>It is also possible to change the name of the copy in the same way:</p>
+<pre><code class="language-bash">cp oldfile.txt tesdir/backup.txt
+</code></pre>
+<h3 id="useful-cp-options">Useful <code>cp</code> Options</h3>
+<p>There are several common options to use with the copy command. These include:</p>
+<ul>
+<li>
+<p><code>-f</code> or <code>--force</code>: If an existing destination file cannot be opened, remove it and try again.</p>
+</li>
+<li>
+<p><code>-n</code> or <code>--no-clobber</code>: Prevents you from overwriting an existing file.</p>
+</li>
+<li>
+<p><code>-i</code> or <code>--interactive</code>: Prompts you for confirmation before overwriting an existing file.</p>
+</li>
+</ul>
+<blockquote>
+<p>Note that <code>-n</code> and <code>-i</code> will override each other. Only the second one will be used.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>-R</code>, <code>-r</code>, or <code>--recursive</code>: Option required to copy a directory. </p>
+</li>
+<li>
+<p><code>-s</code> or <code>--symbolic-link</code>: Makes a symbolic link instead of copying the file. A symbolic link is similar to a shortcut, differing from copying in that changes to the original will effect the symbolic link version of the file as well, while copying creates an independant version of the file.</p>
+</li>
+</ul>
+<h2 id="move-or-rename-files-with-mv">Move or rename files with <code>mv</code></h2>
+<p><code>mv</code> moves files if the target is a directory or renames them if the target includes a new name. This command differs from copying in that only one version of the file or directory is preserved. However the command is otherwise very similar, following the basic usage of:</p>
+<pre><code class="language-bash">mv [OPTION] SOURCE DEST
+</code></pre>
+<p>For instance, if you want to move a file to a new directory, you can use:</p>
+<pre><code class="language-bash">mv oldfile.txt testdir/
+</code></pre>
+<p>If you wish to rename it in the process:</p>
+<pre><code class="language-bash">mv oldfile.txt testdir/newname.txt
+</code></pre>
+<p>If you only wish to rename the file while keeping it in the same directory:</p>
+<pre><code class="language-bash">mv oldfile.txt newname.txt
+</code></pre>
+<h3 id="useful-mv-options">Useful <code>mv</code> Options</h3>
+<p>Some of the options are also the same as in the copy command, including:</p>
+<ul>
+<li>
+<p><code>-f</code>, <code>--force</code></p>
+</li>
+<li>
+<p><code>-i</code>, <code>--interactive</code>, and</p>
+</li>
+<li>
+<p><code>-n</code>, <code>--no-clobber</code></p>
+</li>
+</ul>
+<p>The other suggested options that are available in copy (<code>-R</code>, <code>-r</code>, <code>--recursive</code>, <code>-s</code>, and <code>--symbolic-link</code>) are not available for the <code>mv</code> command. </p>
+<h2 id="delete-files-with-rm">Delete files with <code>rm</code></h2>
+<p><code>rm</code> deletes/unlinks files or folders, so use this option with caution. Its basic usage follows the format of:</p>
+<pre><code class="language-bash">rm [OPTION] FILE
+</code></pre>
+<p>Like with <code>cp</code> and <code>mv</code>, the <code>FILE</code> argument can be a path to a specific file outside of the directory that your shell is inside of.</p>
+<h3 id="useful-rm-options">Useful <code>rm</code> Options</h3>
+<ul>
+<li>
+<p><code>-f</code> or <code>--force</code>: Ignores nonexistent files and arguments.</p>
+</li>
+<li>
+<p><code>-i</code>: Prompts the user for confirmation before every removal.</p>
+</li>
+<li>
+<p><code>-I</code>: Prompts the user for confirmation if trying to remove more than three files, or when removing recursively. This is useful for automated scripts.</p>
+</li>
+<li>
+<p><code>-r</code>, -<code>R</code>, or <code>--recursive</code>: Remove directories and their contents.</p>
+</li>
+<li>
+<p><code>-d</code> or <code>--dir</code>: Removes empty directories.</p>
+</li>
+</ul>
+<h2 id="destroy-files-with-shred">Destroy files with <code>shred</code></h2>
+<p><code>shred</code> is similar to <code>rm</code> in that it makes files unusable, but <code>shred</code> repeatedly overwrites the content, making it unrecoverable. Think of <code>rm</code> as like sending a file to your recycle bin, while <code>shred</code> is more like corrupting a file. It is still possible to recover files that have been removed with <code>rm</code> if you know what you're doing, but it is incredibly difficult to recover files that you <code>shred</code>, even using expensive hardware. Its basic usage follows the format of:</p>
+<pre><code class="language-bash">shred [OPTION] FILE
+</code></pre>
+<p>When you <code>shred</code> a file, there will still be a file with the given name and extension, but its contents will be unrecognizable. To demonstrate, try making an example file with a text editor:</p>
+<pre><code class="language-bash">nano example.txt
+</code></pre>
+<p>Then, write something to the file, save and quit (<code>CTRL+X</code> <span class="arithmatex">\(\to\)</span> <code>Y</code> <span class="arithmatex">\(\to\)</span> <code>Enter</code>), and <code>shred</code> the file.</p>
+<pre><code class="language-bash">shred example.txt
+</code></pre>
+<p>You can then run the command <code>nano example.txt</code> to open the file in your shell to see that your message has been transformed into a jumble of ASCII text.</p>
+<h3 id="useful-shred-options">Useful Shred Options</h3>
+<ul>
+<li>
+<p><code>-f</code> or <code>--force</code>: Changes permissions to allow writing to the file.</p>
+</li>
+<li>
+<p><code>-n</code> or <code>--iterations=N</code>: By default, <code>shred</code> will overwrite the file 3 times. This option allows you to specify how many times, N, to overwrite the file, making it potentially easier or more difficult to recover the data.</p>
+</li>
+<li>
+<p><code>-s</code> or <code>--size=N</code>: Allows you to specify a number, N, of bytes to overwrite.</p>
+</li>
+<li>
+<p><code>-u</code>: Remove file after overwriting it.</p>
+</li>
+<li>
+<p><code>-z</code> or <code>--zero</code>: Add a final overwrite with zeros to hide the shredding.</p>
+</li>
+</ul>
+<hr />
+<p>Now that you have a handle on creating, moving, and entering files and directories, <a href="">click here to continue to the next section</a> where we will discuss search and substitution tricks.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,816 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../04_file_operations/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Searching and Editing - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#searching-and-editing-from-the-shell" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Searching and Editing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_summary_and_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_command_history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_file_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Searching and Editing
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching and Editing
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#searching-filenames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching Filenames
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching Filenames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      find
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="find">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. options: Affects overall operation rather than the processing of a specific file.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. tests: Returns a true or false value depending on the file's attributes.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-actions-have-side-effects-and-returns-a-true-or-false-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. actions: Have side effects and returns a true or false value.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. operators: Connects the other arguments and affect when and whether they are evaluated.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#searching-filenames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching Filenames
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching Filenames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      find
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="find">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. options: Affects overall operation rather than the processing of a specific file.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. tests: Returns a true or false value depending on the file's attributes.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-actions-have-side-effects-and-returns-a-true-or-false-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. actions: Have side effects and returns a true or false value.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. operators: Connects the other arguments and affect when and whether they are evaluated.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="searching-and-editing-from-the-shell">Searching and Editing from the Shell</h1>
+<p>Here is where things start to get more complex. Unix provides several powerful tools for searching and manipulating files directly from the command line. Whether you're hunting down a misplaced file or editing configuration files in bulk, these commands are useful for saving a lot of time and effort.</p>
+<h2 id="searching-filenames">Searching Filenames</h2>
+<h3 id="find"><code>find</code></h3>
+<p>The <code>find</code> command recursively searches for files by name, type, size, or modification time. By default, the command prints the names of the files for which your entire expression is <code>true</code>, unless your expression contains an action besides <code>-prune</code> or <code>-quit</code>. </p>
+<p><code>find</code> searches your directory tree rooted from a given starting point, evaluating your entire expression from left to right until the outcome is determined as <code>True</code> or <code>False</code>, at which point <code>find</code> moves on to the next file (unless using the <code>-quit</code> argument). Without a specified search root, the current directory <code>.</code> is assumed. Also, if a starting point argument would normally begin with <code>-</code>, <code>find</code> would try to treat it instead as an expression. For this reason, it is generally safer to prefix wildcard or dubius path names with either <code>./</code>, or to use absolute path names starting with <code>/</code>.</p>
+<p>The expressions used to select files are comprised of one or more of the following four <strong>primaries</strong>.</p>
+<h4 id="1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file">1. <code>options</code>:   Affects overall operation rather than the processing of a specific file.</h4>
+<p>Most common <code>find</code> options:</p>
+<ul>
+<li><code>-maxdepth N</code><ul>
+<li>Limits how many subdirectories deep your expression will search starting from the search root.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -maxdepth 1 -name &quot;*.log&quot; # Looks for .log files in the current directory
+</code></pre>
+<ul>
+<li><code>-mindepth N</code><ul>
+<li>Skips a number of directory levels before applying tests.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -mindepth 2 -type f # Skips top and first subdirectory to find files
+</code></pre>
+<ul>
+<li><code>-depth</code><ul>
+<li>Processes directory contents <strong>before</strong> directory itself. </li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -depth -name &quot;.txt&quot; -delete # Removes .txt files from directory before directory is handled
+</code></pre>
+<ul>
+<li><code>-xdev</code>/<code>-mount</code><ul>
+<li>Prevents <code>find</code> from crossing into other mounted filesystems such as partitions or mounted drives.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find / -xdev -name &quot;*.conf&quot; # Searches only root, skipping /mnt, /boot, and similar if mounted separately
+</code></pre>
+<h4 id="2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes">2. <code>tests</code>:     Returns a true or false value depending on the file's attributes.</h4>
+<blockquote>
+<p><code>N</code> can be <code>+N</code>, <code>-N</code>, or just <code>N</code></p>
+</blockquote>
+<p>Most common <code>find</code> tests:
+* <code>-name PATTERN</code>/<code>-iname PATTERN</code>
+   * Matches files by name. <code>-iname</code> is case-insensitive.
+   * Wildcards like <code>*</code> and <code>?</code> are supported.</p>
+<pre><code class="language-bash">find . -name &quot;*.txt&quot;   # Find all .txt files
+find . -iname &quot;readme&quot; # Find all case-insensitive files that start with &quot;readme&quot;
+</code></pre>
+<ul>
+<li><code>-type</code><ul>
+<li>Matches by file type:</li>
+<li><code>f</code>: Regular file</li>
+<li><code>d</code>: Directory</li>
+<li><code>l</code>: Symbolic link</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -type f        # Find regular files
+find /testdir -type d # Find directories under /testdir
+</code></pre>
+<ul>
+<li><code>-mtime N</code>/<code>-mmin N</code><ul>
+<li>Matches files by modification time. .</li>
+<li><code>-mtime</code> uses days, <code>-mmin</code> uses minutes.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -mtime -1 # Find files modified in the last day
+find . -mmin +60 # Find files modified more than an hour ago
+</code></pre>
+<ul>
+<li><code>-size N[b|c|k|M|G]</code><ul>
+<li>Matches files by size.</li>
+<li><code>b</code>: 512-byte blocks, <code>c</code>: bytes, <code>k</code>: Kb, <code>M</code>: Mb, <code>G</code>: Gb</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -size +10M  # Find files larger than 10 Mb
+find . -size -100K # Find files smaller than 100 Kb
+find . -size 3b    # Find files that are exactly 3 blocks
+</code></pre>
+<ul>
+<li><code>-user NAME</code>/<code>-group NAME</code><ul>
+<li>Find files owned by a specific user or group.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find /home -user admin # Find files owned by user named admin
+find . -group www-data # Find files owned by www-data group
+</code></pre>
+<blockquote>
+<p><code>-nouser</code> and <code>-nogroup</code> can be used to find files with no associated user or group. Often used for deleted accounts. 
+* <code>-empty</code>
+    * Match empty files or directories</p>
+</blockquote>
+<pre><code class="language-bash">find . -type f -empty # Find empty files
+find . -type d -empty # Find empty directories
+</code></pre>
+<ul>
+<li><code>-path</code>/<code>-wholename</code><ul>
+<li>Match full relative path (from search root)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -path &quot;./src/*.txt&quot; # Find all .txt files in the src folder
+</code></pre>
+<ul>
+<li><code>-newer FILE</code>/<code>-anewer FILE</code>/<code>-cnewer FILE</code><ul>
+<li>Match files based on their modified/access/change times respectively</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -newer reference.txt # Find files which have been modified more recently than reference.txt
+</code></pre>
+<ul>
+<li><code>-readable</code>/<code>-writable</code>/<code>-executable</code><ul>
+<li>Checks the accessibilities for the current user.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -type f -executable # Find executable files
+</code></pre>
+<h4 id="3-actions-have-side-effects-and-returns-a-true-or-false-value">3. <code>actions</code>:   Have side effects and returns a true or false value.</h4>
+<p>Most common <code>find</code> actions:</p>
+<ul>
+<li><code>-print</code><ul>
+<li>This is a default action which does not need to be specified. <code>-print</code> prints the patch of each file which matches the rest of the expression.</li>
+</ul>
+</li>
+<li><code>-fprint FILE</code><ul>
+<li>This prints the entire file name into a file, <code>FILE</code>, followed by a newline. This will also create the <code>FILE</code> if it does not already exist.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -name &quot;.txt&quot; -fprint &quot;save_txt.txt&quot; # Saves the path for every .txt file to save_txt.txt 
+</code></pre>
+<ul>
+<li><code>-delete</code><ul>
+<li>Deletes each file which matches the expression: <strong>Use with caution.</strong> This command is often combined with <code>-type</code> to avoid deleting directories or special files by accident.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . name &quot;*.tmp&quot; -type f -delete # Deletes all .tmp files
+</code></pre>
+<ul>
+<li><code>-exec COMMAND {} \;</code><ul>
+<li>Runs a command for each matching file. The shell substitutes <code>{}</code> with the full path to the file when running. <code>\;</code> then terminates the command.</li>
+<li>You can also replace <code>\;</code> with <code>+</code> to have the command run <strong>once</strong> with multiple file arguments instead of once <strong>per file</strong>.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -name &quot;*.txt&quot; -exec gzip {} \; # Compresses each .txt file
+find . -name &quot;*.log&quot; -exec rm {} +    # Deletes all .log files in batches
+</code></pre>
+<ul>
+<li><code>-prune</code><ul>
+<li>Stops <code>find</code> from descending into matching directories. This action is common for skipping paths.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -path &quot;./.git&quot; -prune -o -name &quot;*.py&quot; -print # Skips .git, listing Python files elsewhere.
+</code></pre>
+<ul>
+<li><code>-quit</code><ul>
+<li>Stops after the first match. Useful for fast existence checks.</li>
+</ul>
+</li>
+</ul>
+<p>Some less common <code>actions</code> that are still useful in scripts include:</p>
+<ul>
+<li><code>-print0</code> and <code>-fprint0 FILE</code><ul>
+<li>Prints filenames with a null character instead of a newline. This action is ideal for filenames which include spaces.</li>
+</ul>
+</li>
+<li><code>-ls</code><ul>
+<li>Prints <code>ls -dils</code> style info for each file.</li>
+</ul>
+</li>
+<li><code>-ok COMMAND ;</code><ul>
+<li>Like <code>-exec</code>, but prompts for confirmation before running each command.</li>
+</ul>
+</li>
+<li><code>-execdir</code>, <code>-okdir</code><ul>
+<li>Like <code>-exec</code>, but runs the command in the directory of the matching file instead of where <code>find</code> was run. Useful when the command depends on relative paths.</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated">4. <code>operators</code>: Connects the other arguments and affect when and whether they are evaluated.</h4>
+<p><code>find</code> allows for you to combine multiple tests using <strong>logical operators</strong> such as <strong>AND</strong>, <strong>OR</strong>, and <strong>NOT</strong>, along with grouping using parentheses. These operators can be very powerful for creating more precise search expressions:
+* <code>-and</code>/<code>-a</code> (or a space)
+    * All expressions must be true. This is the defualt behavior of <code>find</code>: listing conditions will automatically use "and", but it can be writen explicitely with <code>-and</code>.</p>
+<pre><code class="language-bash">find . -type f -name &quot;*.sh&quot;
+# Equivalent to:
+find . -type f -and -name &quot;*.sh&quot;
+# Equivalent to:
+find . -type f -a -name &quot;*.sh&quot;
+# All three will find .sh files
+</code></pre>
+<ul>
+<li><code>-or</code>/<code>-o</code><ul>
+<li>Matches if either condition is true.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -name &quot;*.jpg&quot; -or -name &quot;*.png&quot; # Prints .jpg and .png files
+</code></pre>
+<ul>
+<li><code>-not</code>/<code>!</code><ul>
+<li>Inverts a test</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . -type f -not -name &quot;*.txt&quot;
+# or:
+find . -type f ! -name &quot;*.txt&quot;
+# Prints all regular files that are not .txt
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
