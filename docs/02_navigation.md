@@ -75,7 +75,7 @@ A short list of options you might use more often include:
 
 * `-L #`: Sets a maximum depth, #, of the directory tree to display.
 
-As before, these can also be mixed and matched. For instance, if you only wanted to see directories to a depth of 3, and  you wanted to see the path for each file, you could run:
+As before, these can also be mixed and matched. For instance, if you only wanted to visualize directories up to 3 folders deep and you also wanted to see the path for each file, you could run:
 ```bash
 tree -dpL 3
 ```

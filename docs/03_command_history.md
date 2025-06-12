@@ -49,15 +49,23 @@ You can use reverse search to find previous commands be substring. From the shel
 ### Examples:
 ```bash
 mkdir project
-cd !$    # Moves you into "project" folder
-
-git commit -m "fiz bug"
-^fiz^fix # Runs: git commit -m "fix bug"
+cd !$
 ```
+These commands would create and then move you into the "project" folder.
+```bash
+git commit -m "fiz bug"
+^fiz^fix
+```
+These commands would create the commit with the message "fiz bug" before creating another commit where "fiz" is replaced with "fix".
+```bash
+cp original.txt backup.txt
+vim !*
+```
+These commands would first copy `original.txt` to a file named `backup.txt` before then opening both files with the `vim` editor.
 
 ## View and Edit Commands Before Running
 You can use `fc` (fix command) to open your previous command in your default editor, such as `nano`, `vim`, or `emacs`. This can be useful for making edits to long or complex commands before re-running them.
 
 ---
 
-Now that you can navigate and reuse your command history efficiently, we'll move on to **file operations**: copying, moving, renaming, and deleting files using the shell. [Click here] to continue on to the next section.
+Now that you can navigate and reuse your command history efficiently, we'll move on to **file operations**: copying, moving, renaming, and deleting files using the shell. [Click here](04_file_operations.md) to continue on to the next section.
