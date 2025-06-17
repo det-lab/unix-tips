@@ -1,11 +1,13 @@
-site_name: My Docs
+site_name: Working with the Unix Shell
 nav:
   - Home: index.md
   - Introduction: 01_summary_and_setup.md
   - Navigation: 02_navigation.md
   - Command History: 03_command_history.md
   - File Operations: 04_file_operations.md
-  - Searching and Editing: 05_searching_and_editing.md
+  - Creating Examples: 05_creating_example_files.md
+  - Searching for Files: 06_searching_for_files.md
+  - Searching in Files: 07_searching_inside_files.md
 theme: 
   name: material
 

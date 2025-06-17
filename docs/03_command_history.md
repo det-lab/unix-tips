@@ -22,46 +22,24 @@ You can use reverse search to find previous commands be substring. From the shel
 
 > Tip: Use `CTRL+S` to search forward
 
-## Repeat Previous Commands
-
-* `!!`: Repeat the last command.
-
-* `!n`: Run command number `n` from the output of `history`.
-
-* `!string`: Run the **most recent** command starting with a chosen `string`.
-
-* `!?string`: Run the most recent command **containing** a chosen `string`.
-
-### Examples:
+## Repeating Previous Commands with Fish
+The Fish shell offers even more intuitive and powerful history navigation tools. You can download Fish by following [this link to the official site](https://fishshell.com/), or in Unix, you can run the command:
 ```bash
-!42      # Repeats command number 42
-!git     # Repeats the last command starting with "git"
-!?status # Repeats the last command that had "status" anywhere
+sudo apt install fish
 ```
+Once installed, you only need to enter `fish` into your current shell to try it out. 
 
-## Reuse Parts of Previous Commands
-* `!$`: The last word of the previous command.
+With the Fish shell, you're able to start typing any part of a previous command, and the shell will automatically suggest matching commands from your history. You can then press the **up arrow** to cycle through earlier commands, or press the **right arrow** to accept the suggestion, and then press **Enter** to run the command.
 
-* `!*`: All **arguments** from the previous command.
+Fish also includes advanced history commands:
 
-* `^old^new`: Re-run the last command, replacing `old` with `new`.
+* `history search <pattern>` shows matching commands.
 
-### Examples:
-```bash
-mkdir project
-cd !$
-```
-These commands would create and then move you into the "project" folder.
-```bash
-git commit -m "fiz bug"
-^fiz^fix
-```
-These commands would create the commit with the message "fiz bug" before creating another commit where "fiz" is replaced with "fix".
-```bash
-cp original.txt backup.txt
-vim !*
-```
-These commands would first copy `original.txt` to a file named `backup.txt` before then opening both files with the `vim` editor.
+* `history delete --prefix <pattern>` deletes entries from your history that start with a given prefix.
+
+> Note: Fish keeps history per session and per working directory, making it especially useful for project-based work.
+
+Fish also helpfully uses syntax highlighting as you type. For instance, by default, Fish will color invalid commands red as you write them, and underline valid file paths.
 
 ## View and Edit Commands Before Running
 You can use `fc` (fix command) to open your previous command in your default editor, such as `nano`, `vim`, or `emacs`. This can be useful for making edits to long or complex commands before re-running them.

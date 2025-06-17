@@ -1,14 +1,11 @@
-# Searching and Editing from the Shell
-Here is where things start to get more complex. Unix provides several powerful tools for searching and manipulating files directly from the command line. Whether you're hunting down a misplaced file or editing configuration files in bulk, these commands are useful for saving a lot of time and effort.
-## Searching Filenames
-### `find`
+# Using `find` to Search Filenames
 The `find` command recursively searches for files by name, type, size, or modification time. By default, the command prints the names of the files for which your entire expression is `true`, unless your expression contains an action besides `-prune` or `-quit`. 
 
-`find` searches your directory tree rooted from a given starting point, evaluating your entire expression from left to right until the outcome is determined as `True` or `False`, at which point `find` moves on to the next file (unless using the `-quit` argument). Without a specified search root, the current directory `.` is assumed. Also, if a starting point argument would normally begin with `-`, `find` would try to treat it instead as an expression. For this reason, it is generally safer to prefix wildcard or dubius path names with either `./`, or to use absolute path names starting with `/`.
+`find` searches your directory tree rooted from a given starting point, evaluating your entire expression from left to right until the outcome is determined as `True` or `False`, at which point `find` moves on to the next file (unless using the `-quit` argument). Without a specified search root, the current directory, `.`, is assumed. Also, if a starting point argument would normally begin with `-`, `find` would try to treat it instead as an expression. For this reason, it is generally safer to prefix wildcard or dubius path names with either `./`, or to use absolute path names starting with `/`.
 
 The expressions used to select files are comprised of one or more of the following four **primaries**.
 
-#### 1. `options`:   Affects overall operation rather than the processing of a specific file.
+### 1. `options`:   Affects overall operation rather than the processing of a specific file.
 Most common `find` options:
 
 * `-maxdepth N`
@@ -31,7 +28,7 @@ find . -depth -name ".txt" -delete # Removes .txt files from directory before di
 ```bash
 find / -xdev -name "*.conf" # Searches only root, skipping /mnt, /boot, and similar if mounted separately
 ```
-#### 2. `tests`:     Returns a true or false value depending on the file's attributes.
+### 2. `tests`:     Returns a true or false value depending on the file's attributes.
 >`N` can be `+N`, `-N`, or just `N`
 
 Most common `find` tests:
@@ -94,7 +91,7 @@ find . -newer reference.txt # Find files which have been modified more recently 
 ```bash
 find . -type f -executable # Find executable files
 ```
-#### 3. `actions`:   Have side effects and returns a true or false value.
+### 3. `actions`:   Have side effects and returns a true or false value.
 Most common `find` actions:
 
 * `-print`
@@ -134,7 +131,7 @@ Some less common `actions` that are still useful in scripts include:
     * Like `-exec`, but prompts for confirmation before running each command.
 * `-execdir`, `-okdir`
     * Like `-exec`, but runs the command in the directory of the matching file instead of where `find` was run. Useful when the command depends on relative paths.
-#### 4. `operators`: Connects the other arguments and affect when and whether they are evaluated.
+### 4. `operators`: Connects the other arguments and affect when and whether they are evaluated.
 `find` allows for you to combine multiple tests using **logical operators** such as **AND**, **OR**, and **NOT**, along with grouping using parentheses. These operators can be very powerful for creating more precise search expressions:
 * `-and`/`-a` (or a space)
     * All expressions must be true. This is the defualt behavior of `find`: listing conditions will automatically use "and", but it can be writen explicitely with `-and`.
@@ -159,3 +156,24 @@ find . -type f -not -name "*.txt"
 find . -type f ! -name "*.txt"
 # Prints all regular files that are not .txt
 ```
+* `(` and `)`
+    * Allow for the grouping of expressions. Must be escaped or quoted in most shells in order to avoid shell interpretation: `\(...\)`
+```bash
+find . \( -name "*.jpg" -or -name "*.png" \) -not -path "./backup/*" # Finds .jpg and .png files, exlcuding anything in ./backup
+```
+
+#### Operation Order
+
+`find` lists the precedence order for operators from highest to lowest as:
+
+1. `()`
+
+2. `!`/`-not`
+
+3. Then `-and`
+
+4. Then `-or`
+
+---
+
+Now that we have a better handle on searching for specific files, [click here to continue on to the next section](06_searching_inside_files.md) to learn how to search for specific text inside of your files.
