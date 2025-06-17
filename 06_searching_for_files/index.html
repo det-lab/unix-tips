@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../04_file_operations/">
+        <link rel="prev" href="../05_creating_example_files/">
       
+      
+        <link rel="next" href="../07_searching_inside_files/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Searching and Editing - My Docs</title>
+        <title>Searching for Files - Working with the Unix Shell</title>
       
     
     
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#searching-and-editing-from-the-shell" class="md-skip">
+        <a href="#using-find-to-search-filenames" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Working with the Unix Shell" class="md-header__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -90,13 +92,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Working with the Unix Shell
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Searching and Editing
+              Searching for Files
             
           </span>
         </div>
@@ -174,13 +176,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Working with the Unix Shell" class="md-nav__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    My Docs
+    Working with the Unix Shell
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -299,6 +301,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_creating_example_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -316,7 +340,7 @@
   
   
   <span class="md-ellipsis">
-    Searching and Editing
+    Searching for Files
     
   </span>
   
@@ -329,7 +353,7 @@
   
   
   <span class="md-ellipsis">
-    Searching and Editing
+    Searching for Files
     
   </span>
   
@@ -352,26 +376,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#searching-filenames" class="md-nav__link">
-    <span class="md-ellipsis">
-      Searching Filenames
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Searching Filenames">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#find" class="md-nav__link">
-    <span class="md-ellipsis">
-      find
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="find">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file" class="md-nav__link">
     <span class="md-ellipsis">
       1. options: Affects overall operation rather than the processing of a specific file.
@@ -379,8 +383,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       2. tests: Returns a true or false value depending on the file's attributes.
@@ -388,8 +392,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3-actions-have-side-effects-and-returns-a-true-or-false-value" class="md-nav__link">
     <span class="md-ellipsis">
       3. actions: Have side effects and returns a true or false value.
@@ -397,18 +401,23 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated" class="md-nav__link">
     <span class="md-ellipsis">
       4. operators: Connects the other arguments and affect when and whether they are evaluated.
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="4. operators: Connects the other arguments and affect when and whether they are evaluated.">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#operation-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operation Order
+    </span>
+  </a>
   
 </li>
         
@@ -421,6 +430,28 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_searching_inside_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching in Files
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -452,26 +483,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#searching-filenames" class="md-nav__link">
-    <span class="md-ellipsis">
-      Searching Filenames
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Searching Filenames">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#find" class="md-nav__link">
-    <span class="md-ellipsis">
-      find
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="find">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file" class="md-nav__link">
     <span class="md-ellipsis">
       1. options: Affects overall operation rather than the processing of a specific file.
@@ -479,8 +490,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       2. tests: Returns a true or false value depending on the file's attributes.
@@ -488,8 +499,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3-actions-have-side-effects-and-returns-a-true-or-false-value" class="md-nav__link">
     <span class="md-ellipsis">
       3. actions: Have side effects and returns a true or false value.
@@ -497,18 +508,23 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated" class="md-nav__link">
     <span class="md-ellipsis">
       4. operators: Connects the other arguments and affect when and whether they are evaluated.
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="4. operators: Connects the other arguments and affect when and whether they are evaluated.">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#operation-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operation Order
+    </span>
+  </a>
   
 </li>
         
@@ -533,14 +549,11 @@
 
 
 
-<h1 id="searching-and-editing-from-the-shell">Searching and Editing from the Shell</h1>
-<p>Here is where things start to get more complex. Unix provides several powerful tools for searching and manipulating files directly from the command line. Whether you're hunting down a misplaced file or editing configuration files in bulk, these commands are useful for saving a lot of time and effort.</p>
-<h2 id="searching-filenames">Searching Filenames</h2>
-<h3 id="find"><code>find</code></h3>
+<h1 id="using-find-to-search-filenames">Using <code>find</code> to Search Filenames</h1>
 <p>The <code>find</code> command recursively searches for files by name, type, size, or modification time. By default, the command prints the names of the files for which your entire expression is <code>true</code>, unless your expression contains an action besides <code>-prune</code> or <code>-quit</code>. </p>
-<p><code>find</code> searches your directory tree rooted from a given starting point, evaluating your entire expression from left to right until the outcome is determined as <code>True</code> or <code>False</code>, at which point <code>find</code> moves on to the next file (unless using the <code>-quit</code> argument). Without a specified search root, the current directory <code>.</code> is assumed. Also, if a starting point argument would normally begin with <code>-</code>, <code>find</code> would try to treat it instead as an expression. For this reason, it is generally safer to prefix wildcard or dubius path names with either <code>./</code>, or to use absolute path names starting with <code>/</code>.</p>
+<p><code>find</code> searches your directory tree rooted from a given starting point, evaluating your entire expression from left to right until the outcome is determined as <code>True</code> or <code>False</code>, at which point <code>find</code> moves on to the next file (unless using the <code>-quit</code> argument). Without a specified search root, the current directory, <code>.</code>, is assumed. Also, if a starting point argument would normally begin with <code>-</code>, <code>find</code> would try to treat it instead as an expression. For this reason, it is generally safer to prefix wildcard or dubius path names with either <code>./</code>, or to use absolute path names starting with <code>/</code>.</p>
 <p>The expressions used to select files are comprised of one or more of the following four <strong>primaries</strong>.</p>
-<h4 id="1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file">1. <code>options</code>:   Affects overall operation rather than the processing of a specific file.</h4>
+<h3 id="1-options-affects-overall-operation-rather-than-the-processing-of-a-specific-file">1. <code>options</code>:   Affects overall operation rather than the processing of a specific file.</h3>
 <p>Most common <code>find</code> options:</p>
 <ul>
 <li><code>-maxdepth N</code><ul>
@@ -574,7 +587,7 @@
 </ul>
 <pre><code class="language-bash">find / -xdev -name &quot;*.conf&quot; # Searches only root, skipping /mnt, /boot, and similar if mounted separately
 </code></pre>
-<h4 id="2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes">2. <code>tests</code>:     Returns a true or false value depending on the file's attributes.</h4>
+<h3 id="2-tests-returns-a-true-or-false-value-depending-on-the-files-attributes">2. <code>tests</code>:     Returns a true or false value depending on the file's attributes.</h3>
 <blockquote>
 <p><code>N</code> can be <code>+N</code>, <code>-N</code>, or just <code>N</code></p>
 </blockquote>
@@ -659,7 +672,7 @@ find . -type d -empty # Find empty directories
 </ul>
 <pre><code class="language-bash">find . -type f -executable # Find executable files
 </code></pre>
-<h4 id="3-actions-have-side-effects-and-returns-a-true-or-false-value">3. <code>actions</code>:   Have side effects and returns a true or false value.</h4>
+<h3 id="3-actions-have-side-effects-and-returns-a-true-or-false-value">3. <code>actions</code>:   Have side effects and returns a true or false value.</h3>
 <p>Most common <code>find</code> actions:</p>
 <ul>
 <li><code>-print</code><ul>
@@ -724,7 +737,7 @@ find . -name &quot;*.log&quot; -exec rm {} +    # Deletes all .log files in batc
 </ul>
 </li>
 </ul>
-<h4 id="4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated">4. <code>operators</code>: Connects the other arguments and affect when and whether they are evaluated.</h4>
+<h3 id="4-operators-connects-the-other-arguments-and-affect-when-and-whether-they-are-evaluated">4. <code>operators</code>: Connects the other arguments and affect when and whether they are evaluated.</h3>
 <p><code>find</code> allows for you to combine multiple tests using <strong>logical operators</strong> such as <strong>AND</strong>, <strong>OR</strong>, and <strong>NOT</strong>, along with grouping using parentheses. These operators can be very powerful for creating more precise search expressions:
 * <code>-and</code>/<code>-a</code> (or a space)
     * All expressions must be true. This is the defualt behavior of <code>find</code>: listing conditions will automatically use "and", but it can be writen explicitely with <code>-and</code>.</p>
@@ -754,6 +767,32 @@ find . -type f -a -name &quot;*.sh&quot;
 find . -type f ! -name &quot;*.txt&quot;
 # Prints all regular files that are not .txt
 </code></pre>
+<ul>
+<li><code>(</code> and <code>)</code><ul>
+<li>Allow for the grouping of expressions. Must be escaped or quoted in most shells in order to avoid shell interpretation: <code>\(...\)</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">find . \( -name &quot;*.jpg&quot; -or -name &quot;*.png&quot; \) -not -path &quot;./backup/*&quot; # Finds .jpg and .png files, exlcuding anything in ./backup
+</code></pre>
+<h4 id="operation-order">Operation Order</h4>
+<p><code>find</code> lists the precedence order for operators from highest to lowest as:</p>
+<ol>
+<li>
+<p><code>()</code></p>
+</li>
+<li>
+<p><code>!</code>/<code>-not</code></p>
+</li>
+<li>
+<p>Then <code>-and</code></p>
+</li>
+<li>
+<p>Then <code>-or</code></p>
+</li>
+</ol>
+<hr />
+<p>Now that we have a better handle on searching for specific files, <a href="06_searching_inside_files.md">click here to continue on to the next section</a> to learn how to search for specific text inside of your files.</p>
 
 
 

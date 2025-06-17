@@ -9,22 +9,18 @@
       
       
       
-        <link rel="prev" href="../02_navigation/">
       
       
-        <link rel="next" href="../04_file_operations/">
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>Command History - Working with the Unix Shell</title>
+        <title>Planets - Working with the Unix Shell</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
       
       
 
@@ -43,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,11 +57,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#command-history-and-quick-recall-tools" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -78,7 +69,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Working with the Unix Shell" class="md-header__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
+    <a href="../.." title="Working with the Unix Shell" class="md-header__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Command History
+              Planets
             
           </span>
         </div>
@@ -176,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Working with the Unix Shell" class="md-nav__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
+    <a href="../.." title="Working with the Unix Shell" class="md-nav__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -194,7 +185,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -216,7 +207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_summary_and_setup/" class="md-nav__link">
+      <a href="../../01_summary_and_setup/" class="md-nav__link">
         
   
   
@@ -238,7 +229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_navigation/" class="md-nav__link">
+      <a href="../../02_navigation/" class="md-nav__link">
         
   
   
@@ -257,32 +248,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Command History
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../03_command_history/" class="md-nav__link">
         
   
   
@@ -293,62 +262,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-history-navigation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic History Navigation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#search-through-command-history" class="md-nav__link">
-    <span class="md-ellipsis">
-      Search Through Command History
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeating-previous-commands-with-fish" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repeating Previous Commands with Fish
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-and-edit-commands-before-running" class="md-nav__link">
-    <span class="md-ellipsis">
-      View and Edit Commands Before Running
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -360,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_file_operations/" class="md-nav__link">
+      <a href="../../04_file_operations/" class="md-nav__link">
         
   
   
@@ -382,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_creating_example_files/" class="md-nav__link">
+      <a href="../../05_creating_example_files/" class="md-nav__link">
         
   
   
@@ -404,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_searching_for_files/" class="md-nav__link">
+      <a href="../../06_searching_for_files/" class="md-nav__link">
         
   
   
@@ -426,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_searching_inside_files/" class="md-nav__link">
+      <a href="../../07_searching_inside_files/" class="md-nav__link">
         
   
   
@@ -458,52 +371,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-history-navigation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic History Navigation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#search-through-command-history" class="md-nav__link">
-    <span class="md-ellipsis">
-      Search Through Command History
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeating-previous-commands-with-fish" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repeating Previous Commands with Fish
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-and-edit-commands-before-running" class="md-nav__link">
-    <span class="md-ellipsis">
-      View and Edit Commands Before Running
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -519,59 +386,68 @@
 
 
 
-<h1 id="command-history-and-quick-recall-tools">Command History and Quick Recall Tools</h1>
-<p>Typing the same long commands over and over can get tedious and error prone. Fortunately, Unix shells keep a <strong>command history</strong> that lets you easily recall, repeat, and modify previous commands. This section covers essential shortcuts and tools to speed up your workflow.</p>
-<h2 id="basic-history-navigation">Basic History Navigation</h2>
-<ul>
-<li>
-<p>Press the up arrow to scroll through previous commands.</p>
-</li>
-<li>
-<p>Press the down arrow to move forward again.</p>
-</li>
-</ul>
-<p>You can also view a full numbered history of your previous commands with:</p>
-<pre><code class="language-bash">history
-</code></pre>
-<h2 id="search-through-command-history">Search Through Command History</h2>
-<p>You can use reverse search to find previous commands be substring. From the shell, press <code>CTRL+R</code> to begin a reverse search. You can then start typing part of the command, and the shell will search backward through your history.</p>
-<ul>
-<li>
-<p>Keep pressing <code>CTRL+R</code> to cycle through more matches.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to run the found command.</p>
-</li>
-<li>
-<p>Press <code>Esc</code> or <code>CTRL+G</code> to cancel the search.</p>
-</li>
-</ul>
-<blockquote>
-<p>Tip: Use <code>CTRL+S</code> to search forward</p>
-</blockquote>
-<h2 id="repeating-previous-commands-with-fish">Repeating Previous Commands with Fish</h2>
-<p>The Fish shell offers even more intuitive and powerful history navigation tools. You can download Fish by following <a href="https://fishshell.com/">this link to the official site</a>, or in Unix, you can run the command:</p>
-<pre><code class="language-bash">sudo apt install fish
-</code></pre>
-<p>Once installed, you only need to enter <code>fish</code> into your current shell to try it out. </p>
-<p>With the Fish shell, you're able to start typing any part of a previous command, and the shell will automatically suggest matching commands from your history. You can then press the <strong>up arrow</strong> to cycle through earlier commands, or press the <strong>right arrow</strong> to accept the suggestion, and then press <strong>Enter</strong> to run the command.</p>
-<p>Fish also includes advanced history commands:</p>
-<ul>
-<li>
-<p><code>history search &lt;pattern&gt;</code> shows matching commands.</p>
-</li>
-<li>
-<p><code>history delete --prefix &lt;pattern&gt;</code> deletes entries from your history that start with a given prefix.</p>
-</li>
-</ul>
-<blockquote>
-<p>Note: Fish keeps history per session and per working directory, making it especially useful for project-based work.</p>
-</blockquote>
-<p>Fish also helpfully uses syntax highlighting as you type. For instance, by default, Fish will color invalid commands red as you write them, and underline valid file paths.</p>
-<h2 id="view-and-edit-commands-before-running">View and Edit Commands Before Running</h2>
-<p>You can use <code>fc</code> (fix command) to open your previous command in your default editor, such as <code>nano</code>, <code>vim</code>, or <code>emacs</code>. This can be useful for making edits to long or complex commands before re-running them.</p>
-<hr />
-<p>Now that you can navigate and reuse your command history efficiently, we'll move on to <strong>file operations</strong>: copying, moving, renaming, and deleting files using the shell. <a href="../04_file_operations/">Click here</a> to continue on to the next section.</p>
+  <h1>Planets</h1>
+
+<table>
+<thead>
+<tr>
+<th>Planet</th>
+<th>Radius (m)</th>
+<th>Distance (AU)</th>
+<th>Mass (Kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mercury</td>
+<td>2.44E6</td>
+<td>0.39</td>
+<td>3.29E23</td>
+</tr>
+<tr>
+<td>Venus</td>
+<td>6.05E6</td>
+<td>0.72</td>
+<td>4.87E24</td>
+</tr>
+<tr>
+<td>Earth</td>
+<td>6.37E6</td>
+<td>1</td>
+<td>5.97E24</td>
+</tr>
+<tr>
+<td>Mars</td>
+<td>3.39E6</td>
+<td>1.52</td>
+<td>6.42E23</td>
+</tr>
+<tr>
+<td>Jupiter</td>
+<td>7.15E7</td>
+<td>5.2</td>
+<td>1.90E27</td>
+</tr>
+<tr>
+<td>Saturn</td>
+<td>6.03E7</td>
+<td>9.54</td>
+<td>5.69E26</td>
+</tr>
+<tr>
+<td>Uranus</td>
+<td>2.56E7</td>
+<td>19.2</td>
+<td>8.68E25</td>
+</tr>
+<tr>
+<td>Neptune</td>
+<td>2.48E7</td>
+<td>30.1</td>
+<td>1.02E26</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -620,12 +496,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
