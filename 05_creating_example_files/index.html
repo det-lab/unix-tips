@@ -408,201 +408,101 @@
 
 
 <h1 id="creating-example-files">Creating Example Files</h1>
-<p>Now that we've gotten some of the more vital commands down, let's use this as an opportunity to start creating some files that we can test our command knowledge on. This section will show the explicit creation of the example files, but you can also simply download the three created files from here and move them to a chosen directory:</p>
+<p>Now that we've gotten some of the more vital commands down, let's use this as an opportunity to start creating some files that we can test our command knowledge on. This will also help us in future sections to test new commands on. </p>
+<p>This section will show the explicit creation of three example files, but you can also simply download the three created files with the following links and move them to a directory of your choice:</p>
 <ul>
 <li>
-<p><a href="../examples/planets/">planets.md</a></p>
+<p><a href="../examples/planets.csv">planets.csv</a></p>
 </li>
 <li>
-<p><a href="../examples/constellations/">constellations.md</a></p>
+<p><a href="../examples/constellations.csv">constellations.csv</a></p>
 </li>
 <li>
-<p><a href="/examples/galaxies.md">galaxies.md</a></p>
+<p><a href="/examples/galaxies.csv">galaxies.csv</a></p>
 </li>
 </ul>
-<p>To create the files, first, navigate to a folder that you'd be willing to use to house some files for this lesson by using the <code>cd</code> command, such as:</p>
+<p>If you're creating your files, navigate to a folder that you'd be willing to use for this lesson by using the <code>cd</code> command. To get to your home directory, you can use:</p>
 <pre><code class="language-bash">cd ~
 </code></pre>
-<p>To navigate to the home directory. From there, create a new folder which can be used to house your example files:</p>
+<p>From there, create a new folder which can be used to house your example files:</p>
 <pre><code class="language-bash">mkdir Unix-Tips
 </code></pre>
-<p>You'll then want to enter this directory using:</p>
+<p>Then, enter this directory using:</p>
 <pre><code class="language-bash">cd Unix-Tips
 </code></pre>
-<p>Now, let's create and edit some files using the <code>touch</code> command and a text editor of your choice. This lesson will be using <code>nano</code>. We'll want to create some files that have several lines with distinct words or phrases for the later sections which will focus on editing and searching. For this example, we'll be creating a couple of files with astronomical data:</p>
-<pre><code class="language-bash">touch planets.md
-touch constellations.md
-touch galaxies.md
+<p>Now let's create and edit some files using the <code>touch</code> command and a text editor of your choice. This lesson will be using the <code>nano</code> editor. We'll want to create some files that have several lines with distinct words or phrases for the later sections which will focus on editing and searching. For this example, we'll be creating a couple of files with astronomical data:</p>
+<pre><code class="language-bash">touch planets.csv
+touch constellations.csv
+touch galaxies.csv
 </code></pre>
-<p>Let's start by creating our <code>planets.md</code> file. We'll create one line for each planet and include its radius, distance from the sun, and mass. Start by entering:</p>
-<pre><code class="language-bash">nano planets.md
+<p>Let's start by creating our <code>planets.csv</code> file. We'll create one line for each planet and include its radius, distance from the sun, and mass. Start by entering:</p>
+<pre><code class="language-bash">nano planets.csv
 </code></pre>
 <p>Then, inside the file, we can add our information:</p>
-<table>
-<thead>
-<tr>
-<th>Planet</th>
-<th>Radius (m)</th>
-<th>Distance (AU)</th>
-<th>Mass (Kg)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mercury</td>
-<td>2.44E6</td>
-<td>0.39</td>
-<td>3.29E23</td>
-</tr>
-<tr>
-<td>Venus</td>
-<td>6.05E6</td>
-<td>0.72</td>
-<td>4.87E24</td>
-</tr>
-<tr>
-<td>Earth</td>
-<td>6.37E6</td>
-<td>1</td>
-<td>5.97E24</td>
-</tr>
-<tr>
-<td>Mars</td>
-<td>3.39E6</td>
-<td>1.52</td>
-<td>6.42E23</td>
-</tr>
-<tr>
-<td>Jupiter</td>
-<td>7.15E7</td>
-<td>5.2</td>
-<td>1.90E27</td>
-</tr>
-<tr>
-<td>Saturn</td>
-<td>6.03E7</td>
-<td>9.54</td>
-<td>5.69E26</td>
-</tr>
-<tr>
-<td>Uranus</td>
-<td>2.56E7</td>
-<td>19.2</td>
-<td>8.68E25</td>
-</tr>
-<tr>
-<td>Neptune</td>
-<td>2.48E7</td>
-<td>30.1</td>
-<td>1.02E26</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<p>Planet, Radius (m), Distance (AU), Mass (Kg),</p>
+<p>Mercury, 2.44E6, 0.39, 3.29E23,</p>
+<p>Venus, 6.05E6, 0.72, 4.87E24,</p>
+<p>Earth, 6.37E6, 1, 5.97E24,</p>
+<p>Mars, 3.39E6, 1.52, 6.42E23,</p>
+<p>Jupiter, 7.15E7, 5.2, 1.90E27,</p>
+<p>Saturn, 6.03E7, 9.54, 5.69E26,</p>
+<p>Uranus, 2.56E7, 19.2, 8.68E25,</p>
+<p>Neptune, 2.48E7, 30.1, 1.02E26</p>
+<blockquote>
+<p>Note: The text here is double spaced as a result of the markdown filetype requirments for line breaks.</p>
+</blockquote>
+</blockquote>
 <p>Then save and exit the file using <code>CTRL+X</code> and <code>Y</code> before creating data for the second two files:</p>
-<pre><code class="language-bash">nano constellations.md
+<pre><code class="language-bash">nano constellations.csv
 </code></pre>
 <p>With data from the Zodiac constellations:</p>
-<table>
-<thead>
-<tr>
-<th>Constellation</th>
-<th>Brightest Star</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Aries</td>
-<td>Hamal</td>
-</tr>
-<tr>
-<td>Taurus</td>
-<td>Aldebaran</td>
-</tr>
-<tr>
-<td>Gemini</td>
-<td>Pollux</td>
-</tr>
-<tr>
-<td>Cancer</td>
-<td>Al Tarf</td>
-</tr>
-<tr>
-<td>Leo</td>
-<td>Regulus</td>
-</tr>
-<tr>
-<td>Virgo</td>
-<td>Spica</td>
-</tr>
-<tr>
-<td>Libra</td>
-<td>Zubeneschamali</td>
-</tr>
-<tr>
-<td>Scorpius</td>
-<td>Antares</td>
-</tr>
-<tr>
-<td>Ophiuchus</td>
-<td>Rasalhague</td>
-</tr>
-<tr>
-<td>Sagittarius</td>
-<td>Kaus Australis</td>
-</tr>
-<tr>
-<td>Capricornus</td>
-<td>Deneb Algedi</td>
-</tr>
-<tr>
-<td>Aquarius</td>
-<td>Sadalsuud</td>
-</tr>
-<tr>
-<td>Pisces</td>
-<td>Alpherg</td>
-</tr>
-</tbody>
-</table>
-<p>And finally, let's fill galaxies.md with a small selection of galaxies in our local group:</p>
-<pre><code class="language-bash">nano galaxies.md
+<blockquote>
+<p>Constellation, Brightest Star,</p>
+<p>Aries, Hamal,</p>
+<p>Taurus, Aldebaran,</p>
+<p>Gemini, Pollux,</p>
+<p>Cancer, Al Tarf,</p>
+<p>Leo, Regulus,</p>
+<p>Virgo, Spica,</p>
+<p>Libra, Zubeneschamali,</p>
+<p>Scorpius, Antares,</p>
+<p>Ophiuchus, Rasalhague,</p>
+<p>Sagittarius, Kaus Australis,</p>
+<p>Capricornus, Deneb Algedi,</p>
+<p>Aquarius, Sadalsuud,</p>
+<p>Pisces, Alpherg</p>
+</blockquote>
+<p>And finally, let's fill galaxies.csv with a small selection of galaxies in our local group:</p>
+<pre><code class="language-bash">nano galaxies.csv
 </code></pre>
-<table>
-<thead>
-<tr>
-<th>Galaxy</th>
-<th>Constellation</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Andromeda</td>
-<td>Andromeda</td>
-<td>Spiral</td>
-</tr>
-<tr>
-<td>Milky Way (Center)</td>
-<td>Sagittarius</td>
-<td>Spiral</td>
-</tr>
-<tr>
-<td>Triangulum</td>
-<td>Triangulum</td>
-<td>Spiral</td>
-</tr>
-<tr>
-<td>Pisces Dwarf</td>
-<td>Pisces</td>
-<td>Irregular</td>
-</tr>
-<tr>
-<td>Leo A</td>
-<td>Leo</td>
-<td>Irregular</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<p>Galaxy, Constellation, Type,</p>
+<p>Andromeda, Andromeda, Spiral,</p>
+<p>Milky Way (Center), Sagittarius, Spiral,</p>
+<p>Triangulum, Triangulum, Spiral,</p>
+<p>Pisces Dwarf, Pisces, Irregular,</p>
+<p>Leo A, Leo, Irregular</p>
+</blockquote>
+<p>Now, let's create some directories inside <code>Unix-Tips</code> so that we can better test some of the commands from the next sections:</p>
+<pre><code class="language-bash">mkdir local-universe
+mkdir local-universe/milky-way
+</code></pre>
+<p>It's now only a couple commands to move our files into their respective directories:</p>
+<pre><code class="language-bash">mv planets.csv local-universe/milky-way
+mv constellations.csv local-universe/milky-way
+mv galaxies.csv local-universe/
+</code></pre>
+<p>You should now have a file tree similar to:</p>
+<pre><code>Unix-Tips
+    └── local-universe
+        ├── galaxies.csv
+        └── milky-way
+            ├── constellations.csv
+            └── planets.csv
+</code></pre>
+<hr />
+<p>Now that we have some examples, <a href="../06_searching_for_files/">click here to continue to the next section</a> where we can learn some powerful tools that can be used to search for files.</p>
 
 
 
