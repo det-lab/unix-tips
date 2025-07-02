@@ -8,6 +8,7 @@ nav:
   - Creating Examples: 05_creating_example_files.md
   - Searching for Files: 06_searching_for_files.md
   - Searching in Files: 07_searching_inside_files.md
+  - Editing Files: 08_editing_files.md
 theme: 
   name: material
 

@@ -20,8 +20,8 @@ Limits how many subdirectories deep your expression will search starting from th
 ```bash
 find . -maxdepth 3 -name "*.csv"
 ```
+**Output**
 ```bash
-# Output
 ./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
@@ -32,8 +32,8 @@ Skips a number of directory levels before applying tests.
 ```bash
 find . -mindepth 3 -name "*.csv"
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 ```
@@ -43,8 +43,8 @@ Processes directory contents starting from current directory without leaving beh
 ```bash
 find . -depth -name "*.csv"
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
@@ -60,8 +60,8 @@ Matches files by name. `-iname` is case-insensitive. Wildcards like `*` and `?` 
 ```bash
 find . -name "planets*"
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/milky-way/planets.csv
 ```
 ### `-type`
@@ -72,8 +72,8 @@ Matches by file type:
 ```bash
 find . -type d
 ```
+**Output:**
 ```bash
-# Output
 .
 ./local-universe
 ./local-universe/milky-way
@@ -84,13 +84,13 @@ Matches files by modification time. `-mtime` uses days, `-mmin` uses minutes. Le
 find . -mtime -1 # Find files modified in the last day
 find . -mmin +60 # Find files modified more than an hour ago
 ```
+**Output:**
 ```bash
-# Output
 .
 ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 .
 ./local-universe
 ./local-universe/milky-way
@@ -126,8 +126,8 @@ Match full relative path (from search root)
 ```bash
 find . -path "./local-universe/milky-way/*.csv"
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 ```
@@ -136,8 +136,8 @@ Match files based on their modified/access/change times respectively.
 ```bash
 find . -newer constellations.csv
 ```
+**Output:**
 ```bash
-# Output
 .
 ./local-universe
 ./local-universe/galaxies.csv
@@ -148,8 +148,8 @@ Checks the accessibilities for the current user.
 ```bash
 find . -type f -writable
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
@@ -181,8 +181,8 @@ Stops `find` from descending into matching directories. This action is common fo
 ```bash
 find local-universe -path "local-universe/milky-way" -prune -o -name "*.csv" 
 ```
+**Output:**
 ```bash
-# Output
 local-universe/galaxies.csv
 local-universe/milky-way
 ```
@@ -191,8 +191,8 @@ Stops after the first match. Useful for fast existence checks.
 ```bash
 find . -name "*.csv" -print -quit
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/galaxies.csv
 ```
 
@@ -218,8 +218,8 @@ Matches if either condition is true.
 ```bash
 find . \( -name "galaxies.csv" -or -name "planets.csv" \)
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/galaxies.csv
 ./local-universe/milky-way/planets.csv
 ```
@@ -228,8 +228,8 @@ Inverts a test
 ```bash
 find . -type f ! -name "planets.csv"
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./csv_list.txt

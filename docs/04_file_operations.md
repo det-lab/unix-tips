@@ -143,4 +143,4 @@ You can then run the command `nano example.txt` to open the file in your shell t
 
 ---
 
-Now that you have a handle on creating, moving, and entering files and directories, [click here to continue to the next section](05_searching_for_files.md) where we will discuss searching for files.
+Now that you have a handle on creating, moving, and entering files and directories, [click here to continue to the next section](05_creating_example_files.md) where we can start creating some example files to practice searching with.

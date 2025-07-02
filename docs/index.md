@@ -1,15 +1,5 @@
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
 ## Project layout
+**Created by Adrian Fisher**
 
     mkdocs.yml    # The configuration file.
     docs/
@@ -21,3 +11,8 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         05_creating_example_files.md # Creating files for examples
         06_searching_for_files.md    # Tips on how to search for files
         07_searching_inside_files.md # Tips on searching for content inside files
+        08_editing_files.md          # Explaining ways to edit the content inside files
+        examples/
+            constellations.csv 
+            galaxies.csv
+            planets.csv

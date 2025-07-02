@@ -14,8 +14,8 @@ Ignores case sensitivity.
 ```bash
 grep -i 'spiral' ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 Andromeda, Andromeda, Spiral,
 Milky Way (Center), Sagittarius, Spiral,
 Triangulum, Triangulum, Spiral,
@@ -26,8 +26,9 @@ Match with a whole word.
 grep -w 'Al' ./local-universe/milky-way/constellations.csv
 ```
 This will match the line containing "Al Tarf", while ignoring "Aldebaran".
+
+**Output:**
 ```bash
-# Output
 Cancer, Al Tarf,
 ```
 
@@ -36,8 +37,8 @@ Allows your `PATTERN` to be interpreted as an **extended regular expression**. T
 ```bash
 grep -E '^(A|S)' ./local-universe/milky-way/constellations.csv
 ```
+**Output:**
 ```bash
-# Output
 Aries, Hamal,
 Scorpius, Antares,
 Sagittarius, Kaus Australis,
@@ -49,8 +50,8 @@ Search using multiple patterns.
 ```bash
 grep -e 'Pisces' -e 'Taurus' ./local-universe/milky-way/constellations.csv
 ```
+**Output:**
 ```bash
-# Output
 Taurus, Aldebaran,
 Pisces, Alpherg
 ```
@@ -75,8 +76,8 @@ Now you can use grep to find which lines contain those stars:
 ```bash
 grep -f ./pattern.txt ./local-universe/milky-way/constellations.csv
 ```
+**Output:**
 ```bash
-# Output
 Aries, Hamal,
 Taurus, Aldebaran,
 Cancer, Al Tarf,
@@ -109,8 +110,8 @@ Selects lines that **do not** match the given pattern. Often used to exclude kno
 ```bash
 grep -v -f pattern.txt ./local-universe/milky-way/constellations.csv
 ```
+**Output:**
 ```bash
-# Output
 Constellation, Brightest Star,
 Gemini, Pollux,
 Leo, Regulus,
@@ -128,8 +129,8 @@ Stop reading a file after finding the first `NUM` matching lines.
 ```bash
 grep -m 3 'ar' -i ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 Milky Way (Center), Sagittarius, Spiral,
 Pisces Dwarf, Pisces, Irregular,
 Leo A, Leo, Irregular
@@ -139,8 +140,8 @@ Prints the byte offset (position) of each matching line's start within the file.
 ```bash
 grep -b 'Spiral' ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 29:Andromeda, Andromeda, Spiral,
 59:Milky Way (Center), Sagittarius, Spiral,
 100:Triangulum, Triangulum, Spiral,
@@ -150,8 +151,8 @@ Show the line number for each match. This is especially helpful when working wit
 ```bash
 grep -n 'Spiral' ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 2:Andromeda, Andromeda, Spiral,
 3:Milky Way (Center), Sagittarius, Spiral,
 4:Triangulum, Triangulum, Spiral,
@@ -164,8 +165,8 @@ Always show the file name in the output. This is a default option when multiple 
 ```bash
 grep -H 'Spiral' ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/galaxies.csv:Andromeda, Andromeda, Spiral,
 ./local-universe/galaxies.csv:Milky Way (Center), Sagittarius, Spiral,
 ./local-universe/galaxies.csv:Triangulum, Triangulum, Spiral,
@@ -179,8 +180,8 @@ Prints only the part of each line that matches the search pattern.
 ```bash
 grep -o 'Spiral' ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 Spiral
 Spiral
 Spiral
@@ -191,8 +192,8 @@ Suppresses all normal outputs. This is useful for testing the presence or absenc
 ```bash
 grep -q 'Spiral' ./local-universe/galaxies.csv && echo "Spiral found."
 ```
+**Output:**
 ```bash
-# Output
 Spiral found.
 ```
 
@@ -220,8 +221,8 @@ Recursively searches subdirectories (**does not** follow symlinks).
 ```bash
 grep -r 'Earth'
 ```
+**Output:**
 ```bash
-# Output
 ./local-universe/milky-way/planets.csv:Earth, 6.37E6, 1, 5.97E24,
 ```
 
@@ -233,8 +234,8 @@ Restrict search to files matching a glob pattern. For instance, if you only wish
 ```bash
 grep -r --include="*.txt" 'Hamal'
 ```
+**Output:**
 ```bash
-# Output
 pattern.txt:Hamal
 ```
 ### `--exclude=GLOB`
@@ -254,8 +255,8 @@ Then, if we wanted to use a recursive search to find only constellations with "L
 ```bash
 grep -r --exclude-from=exclude-pattern.txt 'Leo'
 ```
+**Output:**
 ```bash
-# Output
 local-universe/milky-way/constellations.csv:Leo, Regulus,
 ```
 
@@ -264,8 +265,8 @@ Skip directories that match the pattern. To skip the `milky-way/' subdirectory, 
 ```bash
 grep -r --exclude-dir="milky-way" 'Tri'
 ```
+**Output:**
 ```bash
-# Output
 local-universe/galaxies.csv:Triangulum, Triangulum, Spiral,
 ```
 
@@ -274,8 +275,8 @@ Prints the names of files that contain no matches. To find files that don't cont
 ```bash
 grep -rL 'Spiral'
 ```
+**Output:**
 ```bash
-# Output
 exclude-pattern.txt
 local-universe/milky-way/constellations.csv
 local-universe/milky-way/planets.csv
@@ -288,8 +289,8 @@ Prints the names of files with at least one match.
 ```bash
 grep -rl 'Leo'
 ```
+**Output:**
 ```bash
-# Output
 local-universe/galaxies.csv
 local-universe/milky-way/constellations.csv
 ```
@@ -299,8 +300,8 @@ Prints a count of the number of matches per file instead returning the actual ma
 ```bash
 grep -rc 'Al'
 ```
+**Output:**
 ```bash
-# Output
 exclude-pattern.txt:0
 local-universe/galaxies.csv:0
 local-universe/milky-way/constellations.csv:4
@@ -323,8 +324,8 @@ Show `NUM` lines **before** each match.
 ```bash
 grep -B 1 "Andromeda" ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 local-universe/galaxies.csv-Galaxy, Constellation, Type,
 local-universe/galaxies.csv:Andromeda, Andromeda, Spiral,
 ```
@@ -334,8 +335,8 @@ Show `NUM` lines **after** each match.
 ```bash
 grep -A 1 "Andromeda" ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 Andromeda, Andromeda, Spiral,
 Milky Way (Center), Sagittarius, Spiral,
 ```
@@ -344,8 +345,8 @@ Show `NUM` lines **before and after** each match.
 ```bash
 grep -C 1 "Andromeda" ./local-universe/galaxies.csv
 ```
+**Output:**
 ```bash
-# Output
 Galaxy, Constellation, Type,
 Andromeda, Andromeda, Spiral,
 Milky Way (Center), Sagittarius, Spiral,
@@ -371,4 +372,4 @@ Disable stripping of `\r` (carriage return) characters at the end of lines. This
 
 ---
 
-Now that we understand better how to search within files, let's learn how we can edit files from the command shell. [Click here to continue on to the next section.]()
+Now that we understand better how to search within files, let's learn how we can edit files from the command shell. [Click here to continue on to the next section.](08_editing_files.md)
