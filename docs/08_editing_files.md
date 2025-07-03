@@ -77,7 +77,7 @@ Leo A, Leo, Irregular
 Leo, Regulus,
 ```
 ## Using `ed`
-The `ed` line editor was one of the three original elements of the Unix system (assembler, editor, and shell), and is a more surgical tool for editing files line-by-line. It's especially useful when you know or can find out the exact line numbers you wish to edit or when you want to script out precise edits. For most purposes, `ed` is less useful than text-editors such as `nano` or `vim`, but it can be very efficient for specific uses. 
+The `ed` line editor was one of the three original elements of the Unix system (assembler, editor, and shell), and can be used as a more surgical tool for editing files line-by-line. It's especially useful when you know or can find out the exact line numbers you wish to edit or when you want to script out precise edits. For most purposes however, `ed` is less useful than text-editors such as `nano` or `vim`, but it can be very efficient for specific uses with enough planning and forethought.
 
 Editing with `ed` is accomplished in two distinct modes: **command** and **input**. 
 
@@ -86,18 +86,41 @@ Command mode is the default mode when `ed` is initially invoked. From here, comm
 You can then enter input mode by inputting a command, such as `a` (append), `i` (insert), `d` (delete), or `c` (change). No commands are available in this mode, and input mode can then be terminated by entering a single period (`.`) on a line. If using `ed` to write a new file, you might use `a` to begin writing a line before ending the line by pressing `.`.
 
 The format for running `ed` follows:
-```bash
+```ed
 ed [OPTIONS] [[+line] file]
 ed [OPTIONS] [[+line] '!command [arguments]']
 ```
-If `file` is prefixed with a `!`, then it is interpreted as a shell command, reading the standard output of `file` as executed via the shell. If the file's name begins with a `!` then, simply prefix the name with `./`. 
+If the given `file` starts with a `!`, then it is interpreted as a shell command, meaning it will read the standard output of the `file` as if it was executed via the shell. If the file's name begins with a `!` then (and isn't filled with commands you want to run), simply prefix the name with `./`. 
+### Addressing Lines in `ed`
+The file name can also be preceded by `+line` to set the current line to a specified line number (such as `1`). This will default to the last line if the number given exceeds the number of lines in the file. It is also important to note that `ed` indexes lines starting from `1` instead of `0`.
 
-The file name can also be preceded by `+line` to set the current line to a specified line number (`+1`), defaulting to the last line if the number given exceeds the number of lines in the file. 
+The `file` may also be preceded by `+/re` instead of the line number in order to set the current line as the first line which matches a given regular expression, `re`. `?re` sets the current line to the final line which matches the given regular expression.
 
-It may also be preceded by `+/re` to set the current line to the first line which matches a given regular expression, `re`. `?re` instead sets the current line to the final line which matches the given regular expression.
+To summarize, most `ed` commands operate on `line` addresses. These can look like:
+
+* A specific line number: `5`
+
+* A range of lines: `1,5`
+
+* The current line: `.`
+
+* The last line: `$`
+
+* Relative lines: `.-1`, `.+2`
+
+* A regex match: `/pattern/` (forward), `?pattern?` (backwards)
+
 ### Basic Commands
-#### Viewing a File
-To open a file, type `ed` followed by the file path:
+| Command | Meaning                         |
+| ---     | ---                             |
+|`a`      | Append text after current line  |
+|`i`      | Insert text before current line |
+|`d`      | Delete current line             |
+|`p`      | Print current line              |
+|`w`      | Write the buffer to a file      |
+|`q`      | Quit the editor                 |
+### Interacting with a file
+Let's try to make some changes again to our `planets.csv` file. To begin, simply type `ed` followed by the file path:
 ```bash
 ed ./local-universe/milky-way/planets.csv
 ```
@@ -105,4 +128,74 @@ ed ./local-universe/milky-way/planets.csv
 ```bash
 288
 ```
-Here, `ed` is telling us that it has read 288 characters into the editor buffer
+In this output, `ed` is telling us that it has read 288 characters into the editor buffer. Now, we can print out all of the lines of the file by running:
+```
+,p
+```
+Here, `,` is the **line range address**, and is equivalent to typing `1,$`, meaning "from the first line to the last line". The `p` then is the **command**: print the specified lines.
+**Output:**
+```ed
+Planet, Radius (km), Distance (AU), Mass (T),
+Mercury, 2.44E3, 0.39, 3.29E20,
+Venus, 6.05E3, 0.72, 4.87E21,
+Earth, 6.37E3, 1, 5.97E21,
+Mars, 3.39E3, 1.52, 6.42E20,
+Jupiter, 7.15E4, 5.2, 1.90E24,
+Saturn, 6.03E4, 9.54, 5.69E23,
+Uranus, 2.56E4, 19.2, 8.68E22,
+Neptune, 2.48E4, 30.1, 1.02E23
+```
+Now let's say we want to edit the file to change some of the Roman planet names to be their Greek counterparts and then print our changes. We can do this using similar commands to `sed`:
+```ed
+2s/Mercury/Hermes/
+3s/Venus/Aphrodite/
+5s/Mars/Ares/
+6s/Jupiter/Zeus/
+,p
+```
+**Output:**
+```ed
+Planet, Radius (km), Distance (AU), Mass (T),
+Hermes, 2.44E3, 0.39, 3.29E20,
+Aphrodite, 6.05E3, 0.72, 4.87E21,
+Earth, 6.37E3, 1, 5.97E21,
+Ares, 3.39E3, 1.52, 6.42E20,
+Zeus, 7.15E4, 5.2, 1.90E24,
+Saturn, 6.03E4, 9.54, 5.69E23,
+Uranus, 2.56E4, 19.2, 8.68E22,
+Neptune, 2.48E4, 30.1, 1.02E23
+```
+Now let's say we want to make an addition to the file - let's add the dwarf planets Ceres and Pluto:
+```ed
+5a
+Ceres, 469.7, 2.77, 9.3839E17
+.
+Pluto, 1.19E3, 49.3, 1.3E19,
+```
+Let's also be sure to add a `,` to the end of Neptune's line:
+```ed
+10s/$/,/
+```
+Now we can check our work again by running `,p`:
+```ed
+Planet, Radius (km), Distance (AU), Mass (T),
+Hermes, 2.44E3, 0.39, 3.29E20,
+Aphrodite, 6.05E3, 0.72, 4.87E21,
+Earth, 6.37E3, 1, 5.97E21,
+Ares, 3.39E3, 1.52, 6.42E20,
+Ceres, 469.7, 2.77, 9.38E17,
+Jupiter, 7.15E4, 5.2, 1.90E24,
+Saturn, 6.03E4, 9.54, 5.69E23,
+Uranus, 2.56E4, 19.2, 8.68E22,
+Neptune, 2.48E4, 30.1, 1.02E23,
+Pluto, 1.19E3, 49.3, 1.3E19,
+```
+Now we can save our work and exit `ed` by writing the changes to our file and quiting:
+```ed
+w
+q
+```
+
+---
+
+Now that we have a basic understanding of using `sed` and `ed`, let's start putting all of our work together so that we can do some of what Unix is best at: scripting. [Click here to continue on to the next section.](09_shell_scripts.md)

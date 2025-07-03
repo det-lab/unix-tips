@@ -12,6 +12,7 @@
         06_searching_for_files.md    # Tips on how to search for files
         07_searching_inside_files.md # Tips on searching for content inside files
         08_editing_files.md          # Explaining ways to edit the content inside files
+        09_shell_scripts.md          # Learning how to script with the shell
         examples/
             constellations.csv 
             galaxies.csv
