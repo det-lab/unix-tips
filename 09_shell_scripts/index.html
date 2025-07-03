@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../04_file_operations/">
+        <link rel="prev" href="../08_editing_files/">
       
-      
-        <link rel="next" href="../06_searching_for_files/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Creating Examples - Working with the Unix Shell</title>
+        <title>Shell Scripting - Working with the Unix Shell</title>
       
     
     
@@ -62,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-example-files" class="md-skip">
+        <a href="#shell-scripting" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating Examples
+              Shell Scripting
             
           </span>
         </div>
@@ -301,19 +299,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05_creating_example_files/" class="md-nav__link">
         
   
   
@@ -324,7 +313,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -399,10 +387,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../09_shell_scripts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -413,6 +423,128 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-your-first-shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Your First Shell Script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Your First Shell Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-bangshebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash Bang/Shebang
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-rights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution rights:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-scripting-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Scripting Syntax
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Scripting Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditionals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -437,6 +569,116 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-your-first-shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Your First Shell Script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Your First Shell Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-bangshebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash Bang/Shebang
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-rights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution rights:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-scripting-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Scripting Syntax
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Scripting Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditionals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -451,102 +693,90 @@
 
 
 
-<h1 id="creating-example-files">Creating Example Files</h1>
-<p>Now that we've gotten some of the more vital commands down, let's use this as an opportunity to start creating some files that we can test our command knowledge on. This will also help us in future sections to test new commands on. </p>
-<p>This section will show the explicit creation of three example files, but you can also simply download the three created files with the following links and move them to a directory of your choice:</p>
+<h1 id="shell-scripting">Shell Scripting</h1>
+<p>As the Unix shell is capable of using the contents of a file as input, it's possible to create a file with a list of commands which can then be executed by the shell. These files are called <strong>Shell Scripts</strong> or <strong>Shell Programs</strong>, and use the <code>.sh</code> file extension. Shell scripts work just like any other programming language, so having experience with other languages will make this section easier to understand. Creating shell scripts can be useful for many applications, such as:</p>
 <ul>
 <li>
-<p><a href="../examples/planets.csv">planets.csv</a></p>
+<p>Routing backups of files</p>
 </li>
 <li>
-<p><a href="../examples/constellations.csv">constellations.csv</a></p>
+<p>Adding new functionality to the shell</p>
 </li>
 <li>
-<p><a href="/examples/galaxies.csv">galaxies.csv</a></p>
+<p>Automating work and repitition, etc</p>
 </li>
 </ul>
-<p>If you're creating your files, navigate to a folder that you'd be willing to use for this lesson by using the <code>cd</code> command. To get to your home directory, you can use:</p>
-<pre><code class="language-bash">cd ~
+<p>Fortunately, the commands and syntax for shell scripting are the same as those entered directly in the command line, so this entire lesson so far can be applied directly in shell scripts.</p>
+<h2 id="creating-your-first-shell-script">Creating Your First Shell Script</h2>
+<p>To begin, create a file ending in <code>.sh</code>, such as <code>hello.sh</code>:</p>
+<pre><code class="language-bash">touch hello.sh
 </code></pre>
-<p>From there, create a new folder which can be used to house your example files:</p>
-<pre><code class="language-bash">mkdir Unix-Tips
+<h3 id="bash-bangshebang">Bash Bang/Shebang</h3>
+<p>In order to tell the system to use the shell to interpret the commands, you'll have to start the file with a <strong>bash bang</strong>/<strong>shebang</strong> (a combination of <code>bash #</code> and <code>bang !</code>, followed by the bash shell path). </p>
+<p>The path can vary, so before we start working on our <code>.sh</code> file, you'll want to confirm the path to your bash shell with:</p>
+<pre><code class="language-bash">which bash
 </code></pre>
-<p>Then, enter this directory using:</p>
-<pre><code class="language-bash">cd Unix-Tips
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">/usr/bin/bash
 </code></pre>
-<p>Now let's create and edit some files using the <code>touch</code> command and a text editor of your choice. This lesson will be using the <code>nano</code> editor. We'll want to create some files that have several lines with distinct words or phrases for the later sections which will focus on editing and searching. For this example, we'll be creating a couple of files with astronomical data:</p>
-<pre><code class="language-bash">touch planets.csv
-touch constellations.csv
-touch galaxies.csv
+<p>Now you can open your script with:</p>
+<pre><code class="language-bash">nano hello.sh
 </code></pre>
-<p>Let's start by creating our <code>planets.csv</code> file. We'll create one line for each planet and include its radius, distance from the sun, and mass. Start by entering:</p>
-<pre><code class="language-bash">nano planets.csv
+<p>And add your shebang line along with some commands:</p>
+<pre><code class="language-bash">#! /usr/bin/bash
+
+echo &quot;Hello, world!&quot;
+date
 </code></pre>
-<p>Then, inside the file, we can add our information:</p>
-<blockquote>
-<p>Planet, Radius (m), Distance (AU), Mass (Kg),</p>
-<p>Mercury, 2.44E6, 0.39, 3.29E23,</p>
-<p>Venus, 6.05E6, 0.72, 4.87E24,</p>
-<p>Earth, 6.37E6, 1, 5.97E24,</p>
-<p>Mars, 3.39E6, 1.52, 6.42E23,</p>
-<p>Jupiter, 7.15E7, 5.2, 1.90E27,</p>
-<p>Saturn, 6.03E7, 9.54, 5.69E26,</p>
-<p>Uranus, 2.56E7, 19.2, 8.68E25,</p>
-<p>Neptune, 2.48E7, 30.1, 1.02E26</p>
-<blockquote>
-<p>Note: The text here is double spaced as a result of the markdown filetype requirments for line breaks.</p>
-</blockquote>
-</blockquote>
-<p>Then save and exit the file using <code>CTRL+X</code> and <code>Y</code> before creating data for the second two files:</p>
-<pre><code class="language-bash">nano constellations.csv
+<p>You can then save and close the file.</p>
+<h3 id="execution-rights">Execution rights:</h3>
+<p>In order to be able to actually treat the file as an executable, you'll have to modify the file's permissions. Users are able to have read, write, or execute (<code>rwx</code>) rights for files. To add execution rights for this file, you can run:</p>
+<pre><code class="language-bash">chmod +x hello.sh
 </code></pre>
-<p>With data from the Zodiac constellations:</p>
-<blockquote>
-<p>Constellation, Brightest Star,</p>
-<p>Aries, Hamal,</p>
-<p>Taurus, Aldebaran,</p>
-<p>Gemini, Pollux,</p>
-<p>Cancer, Al Tarf,</p>
-<p>Leo, Regulus,</p>
-<p>Virgo, Spica,</p>
-<p>Libra, Zubeneschamali,</p>
-<p>Scorpius, Antares,</p>
-<p>Ophiuchus, Rasalhague,</p>
-<p>Sagittarius, Kaus Australis,</p>
-<p>Capricornus, Deneb Algedi,</p>
-<p>Aquarius, Sadalsuud,</p>
-<p>Pisces, Alpherg</p>
-</blockquote>
-<p>And finally, let's fill galaxies.csv with a small selection of galaxies in our local group:</p>
-<pre><code class="language-bash">nano galaxies.csv
+<p>You should now be able to execute the file by running:</p>
+<pre><code class="language-bash">./hello.sh
 </code></pre>
-<blockquote>
-<p>Galaxy, Constellation, Type,</p>
-<p>Andromeda, Andromeda, Spiral,</p>
-<p>Milky Way (Center), Sagittarius, Spiral,</p>
-<p>Triangulum, Triangulum, Spiral,</p>
-<p>Pisces Dwarf, Pisces, Irregular,</p>
-<p>Leo A, Leo, Irregular</p>
-</blockquote>
-<p>Now, let's create some directories inside <code>Unix-Tips</code> so that we can better test some of the commands from the next sections:</p>
-<pre><code class="language-bash">mkdir local-universe
-mkdir local-universe/milky-way
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Hello, world!
+Wed Jul  2 18:19:48 MDT 2025
 </code></pre>
-<p>It's now only a couple commands to move our files into their respective directories:</p>
-<pre><code class="language-bash">mv planets.csv local-universe/milky-way
-mv constellations.csv local-universe/milky-way
-mv galaxies.csv local-universe/
+<h2 id="shell-scripting-syntax">Shell Scripting Syntax</h2>
+<p>Like other programming languages, shell scripting allows for the definition of variables, user input, for and while loops, arithmetic expressions, logical operators, conditionals, and the reading of files. Let's take a look at some examples of each of these.</p>
+<h3 id="variables">Variables</h3>
+<p>Variables can be defined with <code>variable_name=value</code>. Note that bash does not allow for spaces between the variable name, equals sign, and the value. Then, to access the value of the variable in a later call, add <code>$</code> before the variable.</p>
+<p>Let's create a new file and start filling it with examples as we learn them:</p>
+<pre><code class="language-bash">nano examples.sh
 </code></pre>
-<p>You should now have a file tree similar to:</p>
-<pre><code>Unix-Tips
-    └── local-universe
-        ├── galaxies.csv
-        └── milky-way
-            ├── constellations.csv
-            └── planets.csv
+<pre><code class="language-bash">#! /usr/bin/bash
+greeting=Hello
+user=World
+echo &quot;$greeting, $user!&quot;
 </code></pre>
-<hr />
-<p>Now that we have some examples, <a href="../06_searching_for_files/">click here to continue to the next section</a> where we can learn some powerful tools that can be used to search for files.</p>
+<p>You can then save this file and make it executable using the <code>chmod +x</code> command from before to give it a try.</p>
+<h3 id="arithmetic">Arithmetic</h3>
+<p>Bash supports the following operators for mathmatic arithmetic:
+| Operator | Use            |
+|---       |---             |
+| <code>**</code>     | Exponentiation |
+| <code>*</code>      | Multiplication |
+| <code>/</code>      | Division       |
+| <code>+</code>      | Addition       |
+| <code>-</code>      | Subtraction    |
+| <code>%</code>      | Modulus        |
+Storing expressions in variables uses the syntax of:</p>
+<pre><code class="language-bash">var=$((expression))
+</code></pre>
+<p>Let's try out some examples by setting some numbers to variables and performing some calculations. If you closed <code>examples.sh</code>, simply open it again with the <code>nano</code> command.</p>
+<pre><code class="language-bash">a=100
+b=5
+c=$((a / b))
+echo $c
+</code></pre>
+<h3 id="user-inputs">User Inputs</h3>
+<p>It is possible to take user input using the <code>read</code> command. To prompt the user with a custom message for user input, you can pair <code>read</code> with the <code>-p</code> flag. </p>
+<h3 id="conditionals">Conditionals</h3>
+<h3 id="logical-operators">Logical Operators</h3>
+<h3 id="reading-files">Reading Files</h3>
 
 
 

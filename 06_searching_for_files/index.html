@@ -732,6 +732,50 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_editing_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_shell_scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1117,8 +1161,8 @@
 <p>Limits how many subdirectories deep your expression will search starting from the search root.</p>
 <pre><code class="language-bash">find . -maxdepth 3 -name &quot;*.csv&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv
+<p><strong>Output</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 </code></pre>
@@ -1127,8 +1171,8 @@
 <p>Skips a number of directory levels before applying tests.</p>
 <pre><code class="language-bash">find . -mindepth 3 -name &quot;*.csv&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/milky-way/constellations.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 </code></pre>
 <hr />
@@ -1136,8 +1180,8 @@
 <p>Processes directory contents starting from current directory without leaving behind empty directories or causing accidental deletion issues.</p>
 <pre><code class="language-bash">find . -depth -name &quot;*.csv&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 </code></pre>
@@ -1150,8 +1194,8 @@
 <p>Matches files by name. <code>-iname</code> is case-insensitive. Wildcards like <code>*</code> and <code>?</code> are supported.</p>
 <pre><code class="language-bash">find . -name &quot;planets*&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/milky-way/planets.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/milky-way/planets.csv
 </code></pre>
 <h3 id="-type"><code>-type</code></h3>
 <p>Matches by file type:
@@ -1160,8 +1204,8 @@
 * <code>l</code>: Symbolic link</p>
 <pre><code class="language-bash">find . -type d
 </code></pre>
-<pre><code class="language-bash"># Output
-.
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">.
 ./local-universe
 ./local-universe/milky-way
 </code></pre>
@@ -1170,12 +1214,12 @@
 <pre><code class="language-bash">find . -mtime -1 # Find files modified in the last day
 find . -mmin +60 # Find files modified more than an hour ago
 </code></pre>
-<pre><code class="language-bash"># Output
-.
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">.
 ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-.
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">.
 ./local-universe
 ./local-universe/milky-way
 ./local-universe/milky-way/constellations.csv
@@ -1208,16 +1252,16 @@ find . -type d -empty # Find empty directories
 <p>Match full relative path (from search root)</p>
 <pre><code class="language-bash">find . -path &quot;./local-universe/milky-way/*.csv&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/milky-way/constellations.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 </code></pre>
 <h3 id="-newer-file-anewer-file-cnewer-file"><code>-newer FILE</code>/<code>-anewer FILE</code>/<code>-cnewer FILE</code></h3>
 <p>Match files based on their modified/access/change times respectively.</p>
 <pre><code class="language-bash">find . -newer constellations.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-.
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">.
 ./local-universe
 ./local-universe/galaxies.csv
 ./local-universe/milky-way
@@ -1226,8 +1270,8 @@ find . -type d -empty # Find empty directories
 <p>Checks the accessibilities for the current user.</p>
 <pre><code class="language-bash">find . -type f -writable
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 </code></pre>
@@ -1253,16 +1297,16 @@ find . -type d -empty # Find empty directories
 <p>Stops <code>find</code> from descending into matching directories. This action is common for skipping paths.</p>
 <pre><code class="language-bash">find local-universe -path &quot;local-universe/milky-way&quot; -prune -o -name &quot;*.csv&quot; 
 </code></pre>
-<pre><code class="language-bash"># Output
-local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">local-universe/galaxies.csv
 local-universe/milky-way
 </code></pre>
 <h3 id="-quit"><code>-quit</code></h3>
 <p>Stops after the first match. Useful for fast existence checks.</p>
 <pre><code class="language-bash">find . -name &quot;*.csv&quot; -print -quit
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv
 </code></pre>
 <h3 id="less-common-actions-that-are-still-useful-in-scripts">Less common <code>actions</code> that are still useful in scripts:</h3>
 <h4 id="-print0-and-fprint0-file"><code>-print0</code> and <code>-fprint0 FILE</code></h4>
@@ -1283,16 +1327,16 @@ local-universe/milky-way
 <p>Matches if either condition is true.</p>
 <pre><code class="language-bash">find . \( -name &quot;galaxies.csv&quot; -or -name &quot;planets.csv&quot; \)
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv
 ./local-universe/milky-way/planets.csv
 </code></pre>
 <h3 id="-not"><code>-not</code>/<code>!</code></h3>
 <p>Inverts a test</p>
 <pre><code class="language-bash">find . -type f ! -name &quot;planets.csv&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv
 ./local-universe/milky-way/constellations.csv
 ./csv_list.txt
 </code></pre>

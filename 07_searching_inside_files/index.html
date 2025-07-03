@@ -12,6 +12,8 @@
         <link rel="prev" href="../06_searching_for_files/">
       
       
+        <link rel="next" href="../08_editing_files/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
@@ -832,6 +834,50 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_editing_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_shell_scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1315,8 +1361,8 @@
 <p>Ignores case sensitivity.</p>
 <pre><code class="language-bash">grep -i 'spiral' ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Andromeda, Andromeda, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Andromeda, Andromeda, Spiral,
 Milky Way (Center), Sagittarius, Spiral,
 Triangulum, Triangulum, Spiral,
 </code></pre>
@@ -1325,15 +1371,15 @@ Triangulum, Triangulum, Spiral,
 <pre><code class="language-bash">grep -w 'Al' ./local-universe/milky-way/constellations.csv
 </code></pre>
 <p>This will match the line containing "Al Tarf", while ignoring "Aldebaran".</p>
-<pre><code class="language-bash"># Output
-Cancer, Al Tarf,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Cancer, Al Tarf,
 </code></pre>
 <h3 id="-e-extended-regexp"><code>-E</code>/<code>--extended-regexp</code></h3>
 <p>Allows your <code>PATTERN</code> to be interpreted as an <strong>extended regular expression</strong>. This allows for more complex syntax like <code>+</code>, <code>?</code>, and <code>|</code> without needing backslashes. For instance, to find entries that start with either "A" or "S":</p>
 <pre><code class="language-bash">grep -E '^(A|S)' ./local-universe/milky-way/constellations.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Aries, Hamal,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Aries, Hamal,
 Scorpius, Antares,
 Sagittarius, Kaus Australis,
 Aquarius, Sadalsuud,
@@ -1342,8 +1388,8 @@ Aquarius, Sadalsuud,
 <p>Search using multiple patterns.</p>
 <pre><code class="language-bash">grep -e 'Pisces' -e 'Taurus' ./local-universe/milky-way/constellations.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Taurus, Aldebaran,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Taurus, Aldebaran,
 Pisces, Alpherg
 </code></pre>
 <h3 id="-f-file-filefile"><code>-f FILE</code>/<code>--file=FILE</code></h3>
@@ -1362,8 +1408,8 @@ Alpherg
 <p>Now you can use grep to find which lines contain those stars:</p>
 <pre><code class="language-bash">grep -f ./pattern.txt ./local-universe/milky-way/constellations.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Aries, Hamal,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Aries, Hamal,
 Taurus, Aldebaran,
 Cancer, Al Tarf,
 Ophiuchus, Rasalhague,
@@ -1388,8 +1434,8 @@ Pisces, Alpherg
 <p>Selects lines that <strong>do not</strong> match the given pattern. Often used to exclude known entries or to filter out unwanted matches. For instance, let's say we want to invert the search from our <code>-f</code> example, <code>pattern.txt</code>.</p>
 <pre><code class="language-bash">grep -v -f pattern.txt ./local-universe/milky-way/constellations.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Constellation, Brightest Star,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Constellation, Brightest Star,
 Gemini, Pollux,
 Leo, Regulus,
 Virgo, Spica,
@@ -1404,8 +1450,8 @@ Aquarius, Sadalsuud,
 <p>Stop reading a file after finding the first <code>NUM</code> matching lines.</p>
 <pre><code class="language-bash">grep -m 3 'ar' -i ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Milky Way (Center), Sagittarius, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Milky Way (Center), Sagittarius, Spiral,
 Pisces Dwarf, Pisces, Irregular,
 Leo A, Leo, Irregular
 </code></pre>
@@ -1413,8 +1459,8 @@ Leo A, Leo, Irregular
 <p>Prints the byte offset (position) of each matching line's start within the file.</p>
 <pre><code class="language-bash">grep -b 'Spiral' ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-29:Andromeda, Andromeda, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">29:Andromeda, Andromeda, Spiral,
 59:Milky Way (Center), Sagittarius, Spiral,
 100:Triangulum, Triangulum, Spiral,
 </code></pre>
@@ -1422,8 +1468,8 @@ Leo A, Leo, Irregular
 <p>Show the line number for each match. This is especially helpful when working with large files.</p>
 <pre><code class="language-bash">grep -n 'Spiral' ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-2:Andromeda, Andromeda, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">2:Andromeda, Andromeda, Spiral,
 3:Milky Way (Center), Sagittarius, Spiral,
 4:Triangulum, Triangulum, Spiral,
 </code></pre>
@@ -1433,8 +1479,8 @@ Leo A, Leo, Irregular
 <p>Always show the file name in the output. This is a default option when multiple files are searched.</p>
 <pre><code class="language-bash">grep -H 'Spiral' ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/galaxies.csv:Andromeda, Andromeda, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/galaxies.csv:Andromeda, Andromeda, Spiral,
 ./local-universe/galaxies.csv:Milky Way (Center), Sagittarius, Spiral,
 ./local-universe/galaxies.csv:Triangulum, Triangulum, Spiral,
 </code></pre>
@@ -1444,8 +1490,8 @@ Leo A, Leo, Irregular
 <p>Prints only the part of each line that matches the search pattern.</p>
 <pre><code class="language-bash">grep -o 'Spiral' ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Spiral
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Spiral
 Spiral
 Spiral
 </code></pre>
@@ -1453,8 +1499,8 @@ Spiral
 <p>Suppresses all normal outputs. This is useful for testing the presence or absence of a pattern in scripts.</p>
 <pre><code class="language-bash">grep -q 'Spiral' ./local-universe/galaxies.csv &amp;&amp; echo &quot;Spiral found.&quot;
 </code></pre>
-<pre><code class="language-bash"># Output
-Spiral found.
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Spiral found.
 </code></pre>
 <h3 id="-binary-filestype"><code>--binary-files=TYPE</code></h3>
 <p>Choose how to handle binary files.
@@ -1476,8 +1522,8 @@ Spiral found.
 <p>Recursively searches subdirectories (<strong>does not</strong> follow symlinks).</p>
 <pre><code class="language-bash">grep -r 'Earth'
 </code></pre>
-<pre><code class="language-bash"># Output
-./local-universe/milky-way/planets.csv:Earth, 6.37E6, 1, 5.97E24,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">./local-universe/milky-way/planets.csv:Earth, 6.37E6, 1, 5.97E24,
 </code></pre>
 <h3 id="-r-dereference-recursive"><code>-R</code>/<code>--dereference-recursive</code></h3>
 <p>Like <code>-r</code>, but <strong>does</strong> follow symlinks.</p>
@@ -1485,8 +1531,8 @@ Spiral found.
 <p>Restrict search to files matching a glob pattern. For instance, if you only wish to search inside of .txt files, you can run something like:</p>
 <pre><code class="language-bash">grep -r --include=&quot;*.txt&quot; 'Hamal'
 </code></pre>
-<pre><code class="language-bash"># Output
-pattern.txt:Hamal
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">pattern.txt:Hamal
 </code></pre>
 <h3 id="-excludeglob"><code>--exclude=GLOB</code></h3>
 <p>Skips files that match the pattern.</p>
@@ -1501,22 +1547,22 @@ planets.csv
 <p>Then, if we wanted to use a recursive search to find only constellations with "Leo" in their names (skipping the Leo A galaxy), we could run:</p>
 <pre><code class="language-bash">grep -r --exclude-from=exclude-pattern.txt 'Leo'
 </code></pre>
-<pre><code class="language-bash"># Output
-local-universe/milky-way/constellations.csv:Leo, Regulus,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">local-universe/milky-way/constellations.csv:Leo, Regulus,
 </code></pre>
 <h3 id="-exclude-dirglob"><code>--exclude-dir=GLOB</code></h3>
 <p>Skip directories that match the pattern. To skip the `milky-way/' subdirectory, you could run:</p>
 <pre><code class="language-bash">grep -r --exclude-dir=&quot;milky-way&quot; 'Tri'
 </code></pre>
-<pre><code class="language-bash"># Output
-local-universe/galaxies.csv:Triangulum, Triangulum, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">local-universe/galaxies.csv:Triangulum, Triangulum, Spiral,
 </code></pre>
 <h3 id="-l-files-without-match"><code>-L</code>/<code>--files-without-match</code></h3>
 <p>Prints the names of files that contain no matches. To find files that don't contain the word "Spiral", you could use:</p>
 <pre><code class="language-bash">grep -rL 'Spiral'
 </code></pre>
-<pre><code class="language-bash"># Output
-exclude-pattern.txt
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">exclude-pattern.txt
 local-universe/milky-way/constellations.csv
 local-universe/milky-way/planets.csv
 csv_list.txt
@@ -1526,16 +1572,16 @@ pattern.txt
 <p>Prints the names of files with at least one match.</p>
 <pre><code class="language-bash">grep -rl 'Leo'
 </code></pre>
-<pre><code class="language-bash"># Output
-local-universe/galaxies.csv
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">local-universe/galaxies.csv
 local-universe/milky-way/constellations.csv
 </code></pre>
 <h3 id="-c-count"><code>-c</code>/<code>--count</code></h3>
 <p>Prints a count of the number of matches per file instead returning the actual matches.</p>
 <pre><code class="language-bash">grep -rc 'Al'
 </code></pre>
-<pre><code class="language-bash"># Output
-exclude-pattern.txt:0
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">exclude-pattern.txt:0
 local-universe/galaxies.csv:0
 local-universe/milky-way/constellations.csv:4
 local-universe/milky-way/planets.csv:0
@@ -1552,24 +1598,24 @@ pattern.txt:4
 <p>Show <code>NUM</code> lines <strong>before</strong> each match.</p>
 <pre><code class="language-bash">grep -B 1 &quot;Andromeda&quot; ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-local-universe/galaxies.csv-Galaxy, Constellation, Type,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">local-universe/galaxies.csv-Galaxy, Constellation, Type,
 local-universe/galaxies.csv:Andromeda, Andromeda, Spiral,
 </code></pre>
 <h3 id="-a-num-after-contextnum"><code>-A NUM</code>/<code>--after-context=NUM</code></h3>
 <p>Show <code>NUM</code> lines <strong>after</strong> each match.</p>
 <pre><code class="language-bash">grep -A 1 &quot;Andromeda&quot; ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Andromeda, Andromeda, Spiral,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Andromeda, Andromeda, Spiral,
 Milky Way (Center), Sagittarius, Spiral,
 </code></pre>
 <h3 id="-c-num-contextnum-num"><code>-C NUM</code>/<code>--context=NUM</code>/<code>-NUM</code></h3>
 <p>Show <code>NUM</code> lines <strong>before and after</strong> each match.</p>
 <pre><code class="language-bash">grep -C 1 &quot;Andromeda&quot; ./local-universe/galaxies.csv
 </code></pre>
-<pre><code class="language-bash"># Output
-Galaxy, Constellation, Type,
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Galaxy, Constellation, Type,
 Andromeda, Andromeda, Spiral,
 Milky Way (Center), Sagittarius, Spiral,
 </code></pre>
@@ -1587,7 +1633,7 @@ Milky Way (Center), Sagittarius, Spiral,
 <h3 id="-u-binary"><code>-U</code>/<code>--binary</code></h3>
 <p>Disable stripping of <code>\r</code> (carriage return) characters at the end of lines. This is useful when dealing with files from Windows systems (CRLF line endings). This option helps preserve exact formatting in mixed-platform environments.</p>
 <hr />
-<p>Now that we understand better how to search within files, let's learn how we can edit files from the command shell. <a href="">Click here to continue on to the next section.</a></p>
+<p>Now that we understand better how to search within files, let's learn how we can edit files from the command shell. <a href="../08_editing_files/">Click here to continue on to the next section.</a></p>
 
 
 
