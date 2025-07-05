@@ -87,14 +87,14 @@ You can then enter input mode by inputting a command, such as `a` (append), `i` 
 
 The format for running `ed` follows:
 ```ed
-ed [OPTIONS] [[+line] file]
-ed [OPTIONS] [[+line] '!command [arguments]']
+ed [OPTIONS] [[line] file]
+ed [OPTIONS] [[line] '!command [arguments]']
 ```
-If the given `file` starts with a `!`, then it is interpreted as a shell command, meaning it will read the standard output of the `file` as if it was executed via the shell. If the file's name begins with a `!` then (and isn't filled with commands you want to run), simply prefix the name with `./`. 
+>If the given `file` starts with a `!`, then it is interpreted as a shell command, meaning it will read the standard output of the `file` as if it was executed via the shell. If the file's name begins with a `!` then (and isn't filled with commands you want to run), simply prefix the name with `./`. 
 ### Addressing Lines in `ed`
-The file name can also be preceded by `+line` to set the current line to a specified line number (such as `1`). This will default to the last line if the number given exceeds the number of lines in the file. It is also important to note that `ed` indexes lines starting from `1` instead of `0`.
+The file name can also be preceded by `line` to set the current line to a specified line number (such as `1`). This will default to the last line if the number given exceeds the number of lines in the file. It is also important to note that `ed` indexes lines starting from `1` instead of `0`.
 
-The `file` may also be preceded by `+/re` instead of the line number in order to set the current line as the first line which matches a given regular expression, `re`. `?re` sets the current line to the final line which matches the given regular expression.
+The `file` may also be preceded by `/re` instead of the line number in order to set the current line as the first line which matches a given regular expression, `re`. `?re` sets the current line to the final line which matches the given regular expression.
 
 To summarize, most `ed` commands operate on `line` addresses. These can look like:
 
@@ -198,4 +198,4 @@ q
 
 ---
 
-Now that we have a basic understanding of using `sed` and `ed`, let's start putting all of our work together so that we can do some of what Unix is best at: scripting. [Click here to continue on to the next section.](09_shell_scripts.md)
+Now that we have a basic understanding of using `sed` and `ed`, let's learn one of the most important tools for effectively utilizing them.[Click here to continue on to the next section](09_shell_scripts.md) where we will learn how to create and execute shell scripts.

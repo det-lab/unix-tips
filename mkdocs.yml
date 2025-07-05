@@ -10,6 +10,7 @@ nav:
   - Searching in Files: 07_searching_inside_files.md
   - Editing Files: 08_editing_files.md
   - Shell Scripting: 09_shell_scripts.md
+  - Putting it together: 10_script_example.md
 theme: 
   name: material
 

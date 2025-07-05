@@ -51,7 +51,7 @@ Then, inside the file, we can add our information:
 >
 >Neptune, 2.48E7, 30.1, 1.02E26
 
->> Note: The text here is double spaced as a result of the markdown filetype requirments for line breaks.
+>> Note: The text here is double spaced for web formatting - it is not necessary for your version of the files.
 
 Then save and exit the file using `CTRL+X` and `Y` before creating data for the second two files:
 ```bash
@@ -85,7 +85,7 @@ With data from the Zodiac constellations:
 >
 >Aquarius, Sadalsuud,
 >
->Pisces, Alpherg
+>Pisces, Alpherg,
 
 And finally, let's fill galaxies.csv with a small selection of galaxies in our local group:
 ```bash
@@ -102,7 +102,7 @@ nano galaxies.csv
 >
 >Pisces Dwarf, Pisces, Irregular,
 >
->Leo A, Leo, Irregular
+>Leo A, Leo, Irregular,
 
 Now, let's create some directories inside `Unix-Tips` so that we can better test some of the commands from the next sections:
 ```bash
