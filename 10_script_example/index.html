@@ -9,20 +9,20 @@
       
       
       
+        <link rel="prev" href="../09_shell_scripts/">
       
-        <link rel="next" href="01_summary_and_setup/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>Working with the Unix Shell</title>
+        <title>Putting it together - Working with the Unix Shell</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
       
       
 
@@ -41,7 +41,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-layout" class="md-skip">
+        <a href="#scripting-example" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +76,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Working with the Unix Shell" class="md-header__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
+    <a href=".." title="Working with the Unix Shell" class="md-header__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Putting it together
             
           </span>
         </div>
@@ -174,7 +174,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Working with the Unix Shell" class="md-nav__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
+    <a href=".." title="Working with the Unix Shell" class="md-nav__button md-logo" aria-label="Working with the Unix Shell" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -189,30 +189,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -223,33 +203,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -261,7 +214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_summary_and_setup/" class="md-nav__link">
+      <a href="../01_summary_and_setup/" class="md-nav__link">
         
   
   
@@ -283,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02_navigation/" class="md-nav__link">
+      <a href="../02_navigation/" class="md-nav__link">
         
   
   
@@ -305,7 +258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03_command_history/" class="md-nav__link">
+      <a href="../03_command_history/" class="md-nav__link">
         
   
   
@@ -327,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04_file_operations/" class="md-nav__link">
+      <a href="../04_file_operations/" class="md-nav__link">
         
   
   
@@ -349,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05_creating_example_files/" class="md-nav__link">
+      <a href="../05_creating_example_files/" class="md-nav__link">
         
   
   
@@ -371,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06_searching_for_files/" class="md-nav__link">
+      <a href="../06_searching_for_files/" class="md-nav__link">
         
   
   
@@ -393,7 +346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07_searching_inside_files/" class="md-nav__link">
+      <a href="../07_searching_inside_files/" class="md-nav__link">
         
   
   
@@ -415,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08_editing_files/" class="md-nav__link">
+      <a href="../08_editing_files/" class="md-nav__link">
         
   
   
@@ -437,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09_shell_scripts/" class="md-nav__link">
+      <a href="../09_shell_scripts/" class="md-nav__link">
         
   
   
@@ -456,10 +409,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="10_script_example/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -470,6 +432,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -491,23 +454,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -523,28 +471,136 @@
 
 
 
-  <h1>Home</h1>
+<h1 id="scripting-example">Scripting Example</h1>
+<p>We've now learned how to use the Unix shell to navigate our folder system, to create and delete files, create and delete folders, copy, move, and rename files, to search for and inside of files, and how to edit the contents of files, and finally how to create and run shell scripts to automate these processes. Let's try now to put together some of these abilities of the Unix shell and create a script to manipulate the contents of our <code>Unix-Tips</code> folder. If you've been following along with the examples provided in this lesson, your folder tree should look similar to:</p>
+<pre><code class="language-bash">├── csv_list.txt
+├── examples.sh
+├── exclude-pattern.txt
+├── hello.sh
+├── kilogram-replacement.txt
+├── local-universe
+│   ├── galaxies.csv
+│   └── milky-way
+│       ├── constellations.csv
+│       ├── planets.csv
+│       └── planets.csv.bak
+└── pattern.txt
 
-<h2 id="project-layout">Project layout</h2>
-<p><strong>Created by Adrian Fisher</strong></p>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md                     # The documentation homepage.
-    01_summary_and_setup.md      # Introduction
-    02_navigation.md             # Tips for navigating file system
-    03_command_history.md        # Tips for utilizing command history
-    04_file_operations.md        # Tips for organizing files
-    05_creating_example_files.md # Creating files for examples
-    06_searching_for_files.md    # Tips on how to search for files
-    07_searching_inside_files.md # Tips on searching for content inside files
-    08_editing_files.md          # Explaining ways to edit the content inside files
-    09_shell_scripts.md          # Learning how to script with the shell
-    10_script_example.md         # Putting it all together
-    examples/
-        constellations.csv 
-        galaxies.csv
-        planets.csv
+2 directories, 10 files
 </code></pre>
+<p>In order to demonstrate some ways we can use shell scripts to edit files and folders, let's say that we want to create a script to accomplish the following goals with the contents of this folder:</p>
+<ol>
+<li>
+<p>Delete all of the <code>.txt</code> files</p>
+</li>
+<li>
+<p>Restore the original version of <code>planets.csv</code></p>
+</li>
+<li>
+<p>Move <code>planets.csv</code> into a new <code>solar-system</code> folder</p>
+</li>
+<li>
+<p>Change uppercase characters to lowercase for all <code>.csv</code> files.</p>
+</li>
+</ol>
+<p>Let's name our new script <code>reformat-folder.sh</code>:</p>
+<pre><code class="language-bash">nano reformat-folder.sh
+</code></pre>
+<blockquote>
+<p>We're also going to have the shell print statements with <code>echo</code> for every step so if we encounter an error we'll know at which point the error occurs.</p>
+</blockquote>
+<pre><code class="language-bash">#! /usr/bin/bash
+
+# Set existing folders as variables for easier use
+local_dir=&quot;./local-universe/&quot;
+galaxy_dir=$local_dir&quot;milky-way/&quot;
+
+# Delete all .txt files
+echo &quot;Deleting .txt files...&quot;
+find . -type f -name &quot;*.txt&quot; -delete
+
+# Forcefully overwrite planets.csv with the backup
+echo &quot;Restoring file from backup...&quot;
+src=$galaxy_dir&quot;planets.csv.bak&quot;
+dest=$galaxy_dir&quot;planets.csv&quot;
+cp -f &quot;$src&quot; &quot;$dest&quot;
+# Note: quoting variable names for paths is useful if the path contains spaces
+
+# Create a new folder for planets.csv
+echo &quot;Creating new folder...&quot;
+solar_dir=$galaxy_dir&quot;solar-system/&quot;
+mkdir -p &quot;$solar_dir&quot;
+
+# Move planets.csv into the new folder
+echo &quot;Moving planets.csv...&quot;
+src2=$galaxy_dir&quot;planets.csv&quot;
+dest2=$solar_dir&quot;planets.csv&quot;
+mv &quot;$src2&quot; &quot;$dest2&quot;
+
+# Delete .bak file
+echo &quot;Deleting planets.csv.bak...&quot;
+bak_path=$galaxy_dir&quot;planets.csv.bak&quot;
+rm &quot;$bak_path&quot;
+
+# Loop through all .csv files and make everything lowercase
+echo &quot;Creating lowercase versions of all .csv files...&quot;
+find local-universe/ -type f -name &quot;*.csv&quot; | while read -r csv_file; do
+    # Extract base name and directory
+    dir_name=$(dirname &quot;$csv_file&quot;)
+    base_name=$(basename &quot;$csv_file&quot; .csv)
+
+    # Define lowercase output filename
+    out_file=&quot;${dir_name}/${base_name}-lowercase.csv&quot;
+
+    # Check if file is not already lowercase version
+    if [[ ! &quot;$csv_file&quot; =~ lowercase\.csv$ ]]; then
+        echo &quot; Changing case: $csv_file -&gt; $out_file&quot;
+        tr '[:upper:]' '[:lower:]' &lt; &quot;$csv_file&quot; &gt; &quot;$out_file&quot;
+    fi
+done
+
+# Optional: Delete all non-lowercase versions of the files
+echo &quot;Deleting original .csv files...&quot;
+for file in $(find . -type f -name &quot;*.csv&quot;); do
+    if [[ &quot;$file&quot; != *-lowercase.csv ]]; then
+        echo &quot;Deleting $file&quot;
+        rm &quot;$file&quot;
+    fi
+done
+
+echo &quot;Script complete!&quot;
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Deleting .txt files...
+Restoring file from backup...
+Creating new folder...
+Moving planets.csv...
+Deleting planets.csv.bak...
+Creating lowercase versions of all .csv files...
+ Changing case: local-universe/galaxies.csv -&gt; local-universe/galaxies-lowercase.csv
+ Changing case: local-universe/milky-way/constellations.csv -&gt; local-universe/milky-way/constellations-lowercase.csv
+ Changing case: local-universe/milky-way/solar-system/planets.csv -&gt; local-universe/milky-way/solar-system/planets-lowercase.csv
+Deleting original .csv files...
+Deleting ./local-universe/galaxies.csv
+Deleting ./local-universe/milky-way/constellations.csv
+Deleting ./local-universe/milky-way/solar-system/planets.csv
+Script complete!
+</code></pre>
+<p>You can then double check the script's work by running <code>tree</code>:</p>
+<p><strong>Output</strong></p>
+<pre><code class="language-bash">├── examples.sh
+├── hello.sh
+├── local-universe
+│   ├── galaxies-lowercase.csv
+│   └── milky-way
+│       ├── constellations-lowercase.csv
+│       └── solar-system
+│           └── planets-lowercase.csv
+└── reformat-folder.sh
+</code></pre>
+<h1 id="wrapping-up">Wrapping up</h1>
+<p>This short and simple script demonstrates some of the utility of the Unix shell when paired with scripting. A few lines of code allowed us to clean up files, restore backups, reorganize folders, and transform file contents, all automatically. While the script we wrote here is specific to the structure of this lesson, the techniques used here are widely applicable to any kind of filesystem or data maintenance task.</p>
+<p>With careful use of conditionals, loops, and external tools, we can build reliable, repeatable processes that can save time and reduce human error. This is the core strength of Unix: simple commands that combine into powerful tools. As you continue learning, try experimenting with your own scripts to automate parts of your workflow and explore what the shell has to offer.</p>
 
 
 
@@ -593,12 +649,12 @@ docs/
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

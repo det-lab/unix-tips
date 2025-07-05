@@ -551,6 +551,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_script_example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Putting it together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -763,13 +785,15 @@ Leo, Regulus,
 <p>Command mode is the default mode when <code>ed</code> is initially invoked. From here, commands are read from the standard input and executed to manipulate the contents of the file. All commands operate on whole lines or ranges of lines. </p>
 <p>You can then enter input mode by inputting a command, such as <code>a</code> (append), <code>i</code> (insert), <code>d</code> (delete), or <code>c</code> (change). No commands are available in this mode, and input mode can then be terminated by entering a single period (<code>.</code>) on a line. If using <code>ed</code> to write a new file, you might use <code>a</code> to begin writing a line before ending the line by pressing <code>.</code>.</p>
 <p>The format for running <code>ed</code> follows:</p>
-<pre><code class="language-ed">ed [OPTIONS] [[+line] file]
-ed [OPTIONS] [[+line] '!command [arguments]']
+<pre><code class="language-ed">ed [OPTIONS] [[line] file]
+ed [OPTIONS] [[line] '!command [arguments]']
 </code></pre>
+<blockquote>
 <p>If the given <code>file</code> starts with a <code>!</code>, then it is interpreted as a shell command, meaning it will read the standard output of the <code>file</code> as if it was executed via the shell. If the file's name begins with a <code>!</code> then (and isn't filled with commands you want to run), simply prefix the name with <code>./</code>. </p>
+</blockquote>
 <h3 id="addressing-lines-in-ed">Addressing Lines in <code>ed</code></h3>
-<p>The file name can also be preceded by <code>+line</code> to set the current line to a specified line number (such as <code>1</code>). This will default to the last line if the number given exceeds the number of lines in the file. It is also important to note that <code>ed</code> indexes lines starting from <code>1</code> instead of <code>0</code>.</p>
-<p>The <code>file</code> may also be preceded by <code>+/re</code> instead of the line number in order to set the current line as the first line which matches a given regular expression, <code>re</code>. <code>?re</code> sets the current line to the final line which matches the given regular expression.</p>
+<p>The file name can also be preceded by <code>line</code> to set the current line to a specified line number (such as <code>1</code>). This will default to the last line if the number given exceeds the number of lines in the file. It is also important to note that <code>ed</code> indexes lines starting from <code>1</code> instead of <code>0</code>.</p>
+<p>The <code>file</code> may also be preceded by <code>/re</code> instead of the line number in order to set the current line as the first line which matches a given regular expression, <code>re</code>. <code>?re</code> sets the current line to the final line which matches the given regular expression.</p>
 <p>To summarize, most <code>ed</code> commands operate on <code>line</code> addresses. These can look like:</p>
 <ul>
 <li>
@@ -899,7 +923,7 @@ Pluto, 1.19E3, 49.3, 1.3E19,
 q
 </code></pre>
 <hr />
-<p>Now that we have a basic understanding of using <code>sed</code> and <code>ed</code>, let's start putting all of our work together so that we can do some of what Unix is best at: scripting. <a href="../09_shell_scripts/">Click here to continue on to the next section.</a></p>
+<p>Now that we have a basic understanding of using <code>sed</code> and <code>ed</code>, let's learn one of the most important tools for effectively utilizing them.<a href="../09_shell_scripts/">Click here to continue on to the next section</a> where we will learn how to create and execute shell scripts.</p>
 
 
 
