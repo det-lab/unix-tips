@@ -7,7 +7,7 @@ This section will show the explicit creation of three example files, but you can
 
 * [constellations.csv](examples/constellations.csv)
 
-* [galaxies.csv](/examples/galaxies.csv)
+* [galaxies.csv](examples/galaxies.csv)
 
 If you're creating your files, navigate to a folder that you'd be willing to use for this lesson by using the `cd` command. To get to your home directory, you can use:
 ```bash
