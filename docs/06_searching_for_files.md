@@ -1,13 +1,13 @@
 # Using `find` to Search Filenames
-The `find` command recursively searches for files by name, type, size, or modification time. By default, the command prints the names of the files for which your entire expression is `true`, unless your expression contains an action besides `-prune` or `-quit`. 
+The `find` command recursively searches for files by name, type, size, or modification time. By default, the command prints the names of the files for which your entire expression is `true`.
 
-`find` searches your directory tree rooted from a given starting point, evaluating your entire expression from left to right until the outcome is determined as `True` or `False`, at which point `find` moves on to the next file (unless using the `-quit` argument). Without a specified search root, the current directory, `.`, is assumed. Also, if a starting point argument would normally begin with `-`, `find` would try to treat it instead as an expression. For this reason, it is generally safer to prefix any wildcard or dubius path names with `./`, or to use absolute paths such as `/home/user/Unix-Tips`.
+`find` searches your directory tree rooted from a given starting point, evaluating the given expression from left to right until the outcome is determined as `True` or `False`, at which point `find` moves on to the next file. Without a specified search root, the current directory, `.`, is assumed. Also, if a starting point argument would normally begin with `-`, `find` would try to treat it instead as an expression. For this reason, it is generally safer to prefix any wildcard or dubius path names with `./`, or to use absolute paths such as `/home/user/Unix-Tips`.
 
 The `find` command follows the format:
 ```bash
-find [path...] [expression]
+find [PATH] [EXPRESSION]
 ```
-The `expressions` used to select files are comprised of one or more of the four **primaries**: `options`, `tests`, `actions`, and `operators`. 
+The `expressions` used to select files are comprised of one or more of four **primaries**: `options`, `tests`, `actions`, and `operators`. 
 
 If you're not already, let's move into the `Unix-Tips` directory to practice some of these expressions.
 ```bash
@@ -18,15 +18,13 @@ These affect the overall operation. *Where* to search instead of *what* to searc
 ### `-maxdepth [N]`
 Limits how many subdirectories deep your expression will search starting from the search root.
 ```bash
-find . -maxdepth 3 -name "*.csv"
+find . -maxdepth 2 -name "*.csv"
 ```
 **Output**
 ```bash
 ./local-universe/galaxies.csv
-./local-universe/milky-way/constellations.csv
-./local-universe/milky-way/planets.csv
 ```
----
+
 ### `-mindepth [N]`
 Skips a number of directory levels before applying tests.
 ```bash
@@ -37,19 +35,10 @@ find . -mindepth 3 -name "*.csv"
 ./local-universe/milky-way/constellations.csv
 ./local-universe/milky-way/planets.csv
 ```
----
+
 ### `-depth`
-Processes directory contents starting from current directory without leaving behind empty directories or causing accidental deletion issues.
-```bash
-find . -depth -name "*.csv"
-```
-**Output:**
-```bash
-./local-universe/galaxies.csv
-./local-universe/milky-way/constellations.csv
-./local-universe/milky-way/planets.csv
-```
----
+Processes directory contents starting from the current directory without leaving behind empty directories or causing accidental deletion issues.
+
 ### `-xdev`/`-mount`
 Prevents find from descending into directories that are on different filesystems than the starting point. This is especially useful when you're searching from a top-level directory like `/`, and you want to avoid scanning mounted drives, network shares, or other partitions (e.g., `/proc`, `/mnt`, `/media`, etc.).
 
@@ -58,7 +47,7 @@ These return a true or false value depending on the file's attributes. Here are 
 ### `-name PATTERN`/`-iname PATTERN`
 Matches files by name. `-iname` is case-insensitive. Wildcards like `*` and `?` are supported.
 ```bash
-find . -name "planets*"
+find . -name "pl*"
 ```
 **Output:**
 ```bash
@@ -66,8 +55,11 @@ find . -name "planets*"
 ```
 ### `-type`
 Matches by file type:
+
 * `f`: Regular file
+
 * `d`: Directory
+
 * `l`: Symbolic link
 ```bash
 find . -type d
@@ -79,15 +71,17 @@ find . -type d
 ./local-universe/milky-way
 ```
 ### `-mtime N`/`-mmin N`
-Matches files by modification time. `-mtime` uses days, `-mmin` uses minutes. Let's say I've recently edited `galaxies.csv`, but none of the other files:
+Matches files and folders by modification time. `-mtime` uses days, `-mmin` uses minutes. Let's say I've recently edited `galaxies.csv`, but none of the other files:
 ```bash
-find . -mtime -1 # Find files modified in the last day
-find . -mmin +60 # Find files modified more than an hour ago
+find . -mtime -1 # Find objects modified in the last day
 ```
 **Output:**
 ```bash
 .
 ./local-universe/galaxies.csv
+```
+```bash
+find . -mmin +60 # Find objects modified more than an hour ago
 ```
 **Output:**
 ```bash
@@ -99,10 +93,15 @@ find . -mmin +60 # Find files modified more than an hour ago
 ```
 ### `-size N[b|c|k|M|G]`
 Matches files by size.
+
 * `b`: 512-byte blocks
+
 * `c`: bytes
+
 * `k`: Kb
+
 * `M`: Mb
+
 * `G`: Gb
 ```bash
 find . -size +10M  # Find files larger than 10 Mb
@@ -114,7 +113,7 @@ Find files owned by a specific user or group.
 ```bash
 find /home -user admin # Find files owned by user named admin
 ```
->`-nouser` and `-nogroup` can be used to find files with no associated user or group. Those commands are often used for deleted accounts. 
+>NOTE: `-nouser` and `-nogroup` can be used to find files with no associated user or group. Those commands are often used for deleted accounts. 
 ### `-empty`
 Match empty files or directories
 ```bash
@@ -134,7 +133,7 @@ find . -path "./local-universe/milky-way/*.csv"
 ### `-newer FILE`/`-anewer FILE`/`-cnewer FILE`
 Match files based on their modified/access/change times respectively.
 ```bash
-find . -newer constellations.csv
+find . -newer constellations.csv # Find files modified more recently than constellations.csv
 ```
 **Output:**
 ```bash
@@ -155,11 +154,11 @@ find . -type f -writable
 ./local-universe/milky-way/planets.csv
 ```
 ## 3. `actions`
- These have side effects, but otherwise also return a true or false value. Here are some examples of the most common `find` `actions`:
+These have side effects, but otherwise also return a `True` or `False` value. Here are some of the most common `find` `actions`:
 ### `-print`
-This is a default action which does not need to be specified. `-print` prints the patch of each file which matches the rest of the expression.
+This is the default action which does not normally need to be specified. `-print` prints the patch of each file which matches the rest of the expression. It is useful to explicitly call `-print` when your expression includes actions or tests that don't automatically print their results, especially when chaining multiple conditions such as `-exec`, `-delete`, or `-ok`.
 ### `-fprint FILE`
-This prints the entire file name **into** a given `FILE` followed by a newline. This will also create the `FILE` if it does not already exist.
+This prints the result **into** a given `FILE` followed by a newline. This will also create the `FILE` if it does not already exist.
 ```bash
 find . -name "*.csv" -fprint ./csv_list.txt 
 ```
@@ -176,6 +175,7 @@ You can also replace `\;` with `+` to have the command run **once** with multipl
 ```bash
 find . -name "*.txt" -exec gzip {} \;
 ```
+This command will run `gzip` on all `.txt` files.
 ### `-prune`
 Stops `find` from descending into matching directories. This action is common for skipping paths.
 ```bash
@@ -195,9 +195,7 @@ find . -name "*.csv" -print -quit
 ```bash
 ./local-universe/galaxies.csv
 ```
-
 ### Less common `actions` that are still useful in scripts:
-
 #### `-print0` and `-fprint0 FILE`
 Prints filenames with a null character instead of a newline. This action is ideal for filenames which include spaces.
 #### `-ls`
@@ -209,12 +207,16 @@ Like `-exec`, but runs the command in the directory of the matching file instead
 ## 4. `operators`: 
 `find` allows for you to combine multiple tests using **logical operators** such as **AND**, **OR**, and **NOT**. These combinations can then also be grouped with parentheses. `operators` can be very powerful for creating more precise search expressions:
 ### `-and`/`-a`/space
-All expressions must be true. This is the defualt behavior of `find`: listing conditions with spaces will automatically assume `-and`, but it can be writen explicitely.
+**All expressions** must be true. This is the defualt behavior of `find`: listing conditions with spaces will automatically assume `-and`, but it can be writen explicitely.
 ```bash
-find ./Unix-Tips -type f -and -name "*.csv"
+find . -type f -and -name "*.csv"
+```
+This is equivalent to:
+```bash
+find . -type f -name "*.csv"
 ```
 ### `-or`/`-o`
-Matches if either condition is true.
+Matches if **either** condition is true.
 ```bash
 find . \( -name "galaxies.csv" -or -name "planets.csv" \)
 ```
@@ -236,9 +238,7 @@ find . -type f ! -name "planets.csv"
 ```
 ### Grouping using `(` and `)`
 Allows for the grouping of expressions. Must be escaped or quoted in most shells in order to avoid shell interpretation: `\(...\)` such as in the `-or` example.
-
 ### Operation Precedence
-
 `find` lists the precedence order for operators from highest to lowest as:
 
 1. `()`

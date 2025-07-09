@@ -1,5 +1,5 @@
 # Scripting Example
-We've now learned how to use the Unix shell to navigate our folder system, to create and delete files, create and delete folders, copy, move, and rename files, to search for and inside of files, and how to edit the contents of files, and finally how to create and run shell scripts to automate these processes. Let's try now to put together some of these abilities of the Unix shell and create a script to manipulate the contents of our `Unix-Tips` folder. If you've been following along with the examples provided in this lesson, your folder tree should look similar to:
+We've now learned how to use the Unix shell to navigate our folder system, to create and delete files, create and delete folders, copy, move, and rename files and folders, to search for and inside of files, how to edit the contents of files, and finally how to create and run shell scripts to automate any and all of these processes. Let's try now to put together some of these abilities of the Unix shell and create a script to manipulate the contents of our `Unix-Tips` folder. If you've been following along with the examples provided in this lesson, your folder tree should look similar to:
 ```bash
 ├── csv_list.txt
 ├── examples.sh
@@ -30,7 +30,7 @@ Let's name our new script `reformat-folder.sh`:
 ```bash
 nano reformat-folder.sh
 ```
-> We're also going to have the shell print statements with `echo` for every step so if we encounter an error we'll know at which point the error occurs.
+>NOTE: When first creating a code it's useful to print statements (using `echo` for shell) for every step. This is makes it easier to find at what step an error occurs if you run into one.
 ```bash
 #! /usr/bin/bash
 
