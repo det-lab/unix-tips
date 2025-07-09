@@ -319,27 +319,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#search-through-command-history" class="md-nav__link">
+  <a href="#reverse-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Search Through Command History
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeating-previous-commands-with-fish" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repeating Previous Commands with Fish
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-and-edit-commands-before-running" class="md-nav__link">
-    <span class="md-ellipsis">
-      View and Edit Commands Before Running
+      Reverse search
     </span>
   </a>
   
@@ -543,27 +525,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#search-through-command-history" class="md-nav__link">
+  <a href="#reverse-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Search Through Command History
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeating-previous-commands-with-fish" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repeating Previous Commands with Fish
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-and-edit-commands-before-running" class="md-nav__link">
-    <span class="md-ellipsis">
-      View and Edit Commands Before Running
+      Reverse search
     </span>
   </a>
   
@@ -599,11 +563,14 @@
 <p>You can also view a full numbered history of your previous commands with:</p>
 <pre><code class="language-bash">history
 </code></pre>
-<h2 id="search-through-command-history">Search Through Command History</h2>
-<p>You can use reverse search to find previous commands be substring. From the shell, press <code>CTRL+R</code> to begin a reverse search. You can then start typing part of the command, and the shell will search backward through your history.</p>
+<h2 id="reverse-search">Reverse search</h2>
+<p>Unix supports a reverse search, allowing you to find previous commands by typing in a segment of them. From the shell, press <code>CTRL+R</code> to begin a reverse search. You can then start typing a previous command and the shell will search backward through your history, autocompleting your search on the command line.</p>
 <ul>
 <li>
 <p>Keep pressing <code>CTRL+R</code> to cycle through more matches.</p>
+</li>
+<li>
+<p>Press <code>CTRL+S</code> to search forward</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to run the found command.</p>
@@ -612,32 +579,29 @@
 <p>Press <code>Esc</code> or <code>CTRL+G</code> to cancel the search.</p>
 </li>
 </ul>
-<blockquote>
-<p>Tip: Use <code>CTRL+S</code> to search forward</p>
-</blockquote>
-<h2 id="repeating-previous-commands-with-fish">Repeating Previous Commands with Fish</h2>
-<p>The Fish shell offers even more intuitive and powerful history navigation tools. You can download Fish by following <a href="https://fishshell.com/">this link to the official site</a>, or in Unix, you can run the command:</p>
+<h1 id="using-fish">Using <code>Fish</code></h1>
+<p>The Fish shell offers even more intuitive and powerful history navigation tools than supported by a base Unix installation. You can download Fish by following <a href="https://fishshell.com/">this link to the official site</a>, or in the shell you can run the command:</p>
 <pre><code class="language-bash">sudo apt install fish
 </code></pre>
-<p>Once installed, you only need to enter <code>fish</code> into your current shell to try it out. </p>
-<p>With the Fish shell, you're able to start typing any part of a previous command, and the shell will automatically suggest matching commands from your history. You can then press the <strong>up arrow</strong> to cycle through earlier commands, or press the <strong>right arrow</strong> to accept the suggestion, and then press <strong>Enter</strong> to run the command.</p>
+<p>Once installed, you only need to enter <code>fish</code> on the command line to get started. </p>
+<p>The Fish shell allows you to begin typing any part of a previous command, and it will automatically suggest matching commands from your history. You can then press the <strong>up arrow</strong> or <strong>down arrow</strong> to search through your matching command history. Then, press the <strong>right arrow</strong> to accept the suggestion, and <strong>Enter</strong> to run the command.</p>
 <p>Fish also includes advanced history commands:</p>
 <ul>
 <li>
-<p><code>history search &lt;pattern&gt;</code> shows matching commands.</p>
+<p><code>history search &lt;pattern&gt;</code> shows matching commands. For instance, <code>history search cd</code> would show you each command you've used to change directories in your saved history.</p>
 </li>
 <li>
 <p><code>history delete --prefix &lt;pattern&gt;</code> deletes entries from your history that start with a given prefix.</p>
 </li>
 </ul>
 <blockquote>
-<p>Note: Fish keeps history per session and per working directory, making it especially useful for project-based work.</p>
+<p>NOTE:  Note: Fish keeps a separate history <strong>per session</strong> and <strong>per working directory</strong>, making it especially useful for project-based work.</p>
 </blockquote>
-<p>Fish also helpfully uses syntax highlighting as you type. For instance, by default, Fish will color invalid commands red as you write them, and underline valid file paths.</p>
+<p>Fish also helpfully uses syntax highlighting as you type. By default, Fish will color invalid commands red as you write them, and underline valid file paths.</p>
 <h2 id="view-and-edit-commands-before-running">View and Edit Commands Before Running</h2>
 <p>You can use <code>fc</code> (fix command) to open your previous command in your default editor, such as <code>nano</code>, <code>vim</code>, or <code>emacs</code>. This can be useful for making edits to long or complex commands before re-running them.</p>
 <hr />
-<p>Now that you can navigate and reuse your command history efficiently, we'll move on to <strong>file operations</strong>: copying, moving, renaming, and deleting files using the shell. <a href="../04_file_operations/">Click here</a> to continue on to the next section.</p>
+<p>Now that you can navigate and reuse your command history efficiently, we'll move on to <strong>file operations</strong>: copying, moving, renaming, and deleting files using the shell. <a href="../04_file_operations/">Click here to continue on to the next section.</a></p>
 
 
 

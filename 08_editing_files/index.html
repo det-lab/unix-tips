@@ -521,6 +521,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ed-vs-sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      ed vs. sed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ed vs. sed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-file-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full File Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precise-scriptable-line-oriented-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precise, Scriptable, Line-Oriented Editing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimal Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -701,6 +743,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ed-vs-sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      ed vs. sed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ed vs. sed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-file-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full File Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precise-scriptable-line-oriented-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precise, Scriptable, Line-Oriented Editing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimal Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -735,28 +819,33 @@
 |<code>p</code>         | Print only the substituded line         |
 |<code>I</code>         | Ignore case while searching             |
 |<code>e</code>         | Substitude and execute the command line |</p>
-<p>If you don't use one of the <code>flags</code> (i.e 's/pattern/replacement/'), it will only replace the first match. You can also use multiple flags in conjunction with one another. For instance, if you wanted to go line by line and replace every instance of a pattern after the third, while also ignoring case, you could use the flag <code>3Ig</code>. For clarity: this would not go from the third in the file on, but from the third in the line on, resetting with each new line. </p>
+<p>If you don't use one of the <code>flags</code> (i.e 's/pattern/replacement/'), it will only replace the first match. You can also use multiple flags in conjunction with one another. For instance, if you wanted to go line by line and replace every instance of a pattern after the third, while also ignoring case, you could use the flag <code>3Ig</code>. For clarity: this would not go from the third in the file on, but from the third in the line on, resetting the counter with each new line. </p>
 <p>Let's take a look at how to use some of the more common <code>OPTIONS</code>:</p>
 <h3 id="-isuffix-in-placesuffix"><code>-i[SUFFIX]</code>/<code>--in-place[SUFFIX]</code></h3>
-<p>This is one of the more vital options, and will often be used alongside others. It allows you to edit files in place, and can also make a backup of the file before creating a change if given the optional <code>SUFFIX</code>. Without including <code>-i</code>, this option will will simply print what given lines <em>would</em> look like if they were edited.</p>
-<p>Let's say we want to make an edit to our <code>planets.csv</code> file to have more explicit column names as well. Let's edit the title "Planets" to instead be "Planet Names" while also creating a <code>.bak</code> backup version of the file. <code>sed</code> can accomplish this with the expression:</p>
+<p>This is one of the more vital options, and will often be used alongside others. It allows you to edit files in place, and can also make a backup of the file before creating a change if given the optional <code>SUFFIX</code>. Without including <code>-i</code>, this option will simply print what the given lines <em>would</em> look like if they were edited.</p>
+<p>Let's say we want to make an edit to our <code>planets.csv</code> file to have more explicit column names. Let's edit the title "Planets" to instead be "Planet Names" while also creating a <code>.bak</code> backup version of the file. <code>sed</code> can accomplish this with the expression:</p>
 <pre><code class="language-bash">sed -i.bak 's/Planet/Planet Name/' ./local-universe/milky-way/planets.csv
 </code></pre>
 <p>After running this, you will then have a new file named <code>planets.csv.bak</code> with the original version of the file, while the change "Planet" <span class="arithmatex">\(\to\)</span> "Planet Name" will be reflected in <code>planets.csv</code>.</p>
+<blockquote>
+<p>NOTE: It is not allowed to stack options after <code>-i</code>. Attempting to would simply result in the characters being appended to the end of the file. Multiple options can still be chosen or even stacked after <code>-i</code>, but must be separated with a space in order to not be treated as a suffix. </p>
+</blockquote>
 <h3 id="-n-quiet-silent"><code>-n</code>/<code>--quiet</code>/<code>--silent</code></h3>
-<p>This option supresses the automatic printing of duplicate rows which can be generated by other flags. If used with the <code>/p</code> flag, this option will print only the targeted lines. Let's say you want to preview an edit to <code>galaxies.csv</code> where it is more explicit with the column names, changing "Types" to "Galaxies Types". You could run:</p>
+<p>This option supresses the automatic printing of duplicate rows which can be generated by other flags. If used with the <code>/p</code> flag, this option will print only the targeted lines. Let's say you want to preview an edit to <code>galaxies.csv</code> where it is more explicit with the column names, changing "Types" to "Galaxy Types". You could run:</p>
 <pre><code class="language-bash">sed -n 's/Type/Galaxy Type/p' ./local-universe/galaxies.csv
 </code></pre>
 <p><strong>Output:</strong></p>
 <pre><code class="language-bash">Galaxy, Constellation, Galaxy Type,
 </code></pre>
-<p>If you tried to add <code>-i</code> to this expression, it would result in a file that contains only the output line. To edit the line in the file, you would want to remove both <code>-n</code> and <code>/p</code>.</p>
+<blockquote>
+<p>NOTE: If you tried to add <code>-i</code> to this expression, it would result in a file that contains only the output line. To edit the line in the file, you would want to remove both <code>-n</code> and <code>/p</code>.</p>
+</blockquote>
 <h3 id="-e-script-expressionscript"><code>-e script</code>/<code>--expression=script</code></h3>
-<p>These options allows for us to chain together multiple expressions. Let's say we want to convert the units of the planet radii from <code>m</code> to <code>km</code>. As the planets are all expressed with a radius of either <span class="arithmatex">\(x \times 10^6\)</span>m (xE6) or <span class="arithmatex">\(x \times 10^7\)</span>m (xE7), we could run the following three expressions to make this change:</p>
+<p>These options allow for us to chain together multiple expressions. Let's say we want to convert the units of the planet radii from <code>m</code> to <code>km</code>. As the planets are all expressed with a radius of either <span class="arithmatex">\(x \times 10^6\)</span>m (xE6) or <span class="arithmatex">\(x \times 10^7\)</span>m (xE7), we could run the following three expressions to make this change:</p>
 <pre><code class="language-bash">sed -i -e 's/(m)/(km)/' -e 's/E6/E3/g' -e 's/E7/E4/g' ./local-universe/milky-way/planets.csv
 </code></pre>
 <h3 id="-f-script-file-filescript-file"><code>-f script-file</code>/<code>--file=script-file</code></h3>
-<p>Instead of using <code>-e</code>, we can instead create a script file to read commands. This can be useful for when the number of edits you're trying to make would be cumbersome to type out directly in the command line. Let's say we want to represent the mass of all of the planets in metric tons instead of kilograms (1000 Kg = 1T). We can create a file and fill it with the relevant replacement commands:</p>
+<p>Instead of using <code>-e</code>, we can instead create a script file to read commands. This can be useful for when the number of edits you're trying to make would be cumbersome to type out directly in the command line. Let's say we want to represent the mass of all of the planets in tons instead of kilograms (1000 Kg = 1T). We can create a file and fill it with the relevant replacement commands:</p>
 <pre><code class="language-bash">nano kilogram-replacement.txt
 </code></pre>
 <pre><code class="language-bash">s/(Kg)/(T)/
@@ -783,13 +872,13 @@ Leo, Regulus,
 <p>The <code>ed</code> line editor was one of the three original elements of the Unix system (assembler, editor, and shell), and can be used as a more surgical tool for editing files line-by-line. It's especially useful when you know or can find out the exact line numbers you wish to edit or when you want to script out precise edits. For most purposes however, <code>ed</code> is less useful than text-editors such as <code>nano</code> or <code>vim</code>, but it can be very efficient for specific uses with enough planning and forethought.</p>
 <p>Editing with <code>ed</code> is accomplished in two distinct modes: <strong>command</strong> and <strong>input</strong>. </p>
 <p>Command mode is the default mode when <code>ed</code> is initially invoked. From here, commands are read from the standard input and executed to manipulate the contents of the file. All commands operate on whole lines or ranges of lines. </p>
-<p>You can then enter input mode by inputting a command, such as <code>a</code> (append), <code>i</code> (insert), <code>d</code> (delete), or <code>c</code> (change). No commands are available in this mode, and input mode can then be terminated by entering a single period (<code>.</code>) on a line. If using <code>ed</code> to write a new file, you might use <code>a</code> to begin writing a line before ending the line by pressing <code>.</code>.</p>
+<p>You can then enter input mode by inputting a command, such as <code>a</code> (append), <code>i</code> (insert), <code>d</code> (delete), or <code>c</code> (change). No commands are available after entering input, and input mode can then be terminated by entering a single period (<code>.</code>) on its own line.</p>
 <p>The format for running <code>ed</code> follows:</p>
 <pre><code class="language-ed">ed [OPTIONS] [[line] file]
 ed [OPTIONS] [[line] '!command [arguments]']
 </code></pre>
 <blockquote>
-<p>If the given <code>file</code> starts with a <code>!</code>, then it is interpreted as a shell command, meaning it will read the standard output of the <code>file</code> as if it was executed via the shell. If the file's name begins with a <code>!</code> then (and isn't filled with commands you want to run), simply prefix the name with <code>./</code>. </p>
+<p>NOTE: If the given <code>file</code> starts with a <code>!</code>, then it is interpreted as a shell command, meaning it will read the standard output of the <code>file</code> as if it was executed via the shell. If the file's name begins with a <code>!</code> then (and doesn't contain commands you want to run), simply prefix the name with <code>./</code>. </p>
 </blockquote>
 <h3 id="addressing-lines-in-ed">Addressing Lines in <code>ed</code></h3>
 <p>The file name can also be preceded by <code>line</code> to set the current line to a specified line number (such as <code>1</code>). This will default to the last line if the number given exceeds the number of lines in the file. It is also important to note that <code>ed</code> indexes lines starting from <code>1</code> instead of <code>0</code>.</p>
@@ -922,6 +1011,14 @@ Pluto, 1.19E3, 49.3, 1.3E19,
 <pre><code class="language-ed">w
 q
 </code></pre>
+<h2 id="ed-vs-sed"><code>ed</code> vs. <code>sed</code></h2>
+<p>While <code>sed</code> is often the default choice for stream-based editing, there are several reasons you might choose to use <code>ed</code> over <code>sed</code>, especially in scripting, controlled environments, or low-resource systems.</p>
+<h3 id="full-file-context">Full File Context</h3>
+<p><code>sed</code> processes input line-by-line and can't refer back to previous lines or look ahead to future ones. In contrast, <code>ed</code> loads the entire file into a buffer and lets you operate on arbitrary lines or ranges. This makes <code>ed</code> more useful for edits which depend on <strong>file structure</strong> or <strong>relationships between lines</strong>.</p>
+<h3 id="precise-scriptable-line-oriented-editing">Precise, Scriptable, Line-Oriented Editing</h3>
+<p>When you know the exact lines you want to manipulate, such as in system-generated files, templates, or structured outputs, <code>ed</code> scripts can be extremely short and direct.</p>
+<h3 id="minimal-dependencies">Minimal Dependencies</h3>
+<p><code>ed</code> is tiny and often present on rescue systems, embedded Linux distros, or initramfs environments. If you're in a minimal shell or bootstrapping a system without <code>awk</code>, <code>sed</code>, or <code>vim</code>, <code>ed</code> may be the only editor available.</p>
 <hr />
 <p>Now that we have a basic understanding of using <code>sed</code> and <code>ed</code>, let's learn one of the most important tools for effectively utilizing them.<a href="../09_shell_scripts/">Click here to continue on to the next section</a> where we will learn how to create and execute shell scripts.</p>
 

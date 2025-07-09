@@ -609,15 +609,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#using-shell-scripts-to-manipulate-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using shell scripts to manipulate files
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -842,15 +833,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#using-shell-scripts-to-manipulate-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using shell scripts to manipulate files
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -868,7 +850,7 @@
 
 
 <h1 id="shell-scripting">Shell Scripting</h1>
-<p>As the Unix shell is capable of using the contents of a file as input, it's possible to create a file with a list of commands which can then be executed by the shell. These files are called <strong>Shell Scripts</strong> or <strong>Shell Programs</strong>, and use the <code>.sh</code> file extension. Shell scripts work just like any other programming language, so having experience with other languages will make this section easier to understand. Creating shell scripts can be useful for many applications, such as:</p>
+<p>As the Unix shell is capable of using the contents of a file as input, it's possible to create a file with a list of commands which can then be executed by the shell. These files are called <strong>Shell Scripts</strong> or <strong>Shell Programs</strong>, and use the <code>.sh</code> file extension. Shell scripts work just like any other programming language, so having experience with other languages will make this section easier to understand and follow along with. Creating shell scripts can be useful for many applications, such as:</p>
 <ul>
 <li>
 <p>Routing backups of files</p>
@@ -900,7 +882,6 @@
 <pre><code class="language-bash">#! /usr/bin/bash
 
 echo &quot;Hello, world!&quot;
-date
 </code></pre>
 <p>You can then save and close the file.</p>
 <h3 id="execution-rights">Execution rights:</h3>
@@ -912,12 +893,12 @@ date
 </code></pre>
 <p><strong>Output:</strong></p>
 <pre><code class="language-bash">Hello, world!
-Wed Jul  2 18:19:48 MDT 2025
 </code></pre>
 <h2 id="shell-scripting-syntax">Shell Scripting Syntax</h2>
 <p>Like other programming languages, shell scripting allows for the definition of variables, user input, for and while loops, arithmetic expressions, logical operators, conditionals, and loops. Let's take a look at some examples of each of these.</p>
 <h3 id="variables">Variables</h3>
-<p>Variables can be defined with <code>variable_name=value</code>. Note that bash does not allow for spaces between the variable name, equals sign, and the value. Then, to access the value of the variable in a later call, add <code>$</code> before the variable.</p>
+<p>Variables can be defined with <code>variable_name=value</code>. Note that bash does not allow for spaces between the variable name, equals sign, and the value. </p>
+<p>To access the value in a later call, add <code>$</code> before the variable name.</p>
 <p>Let's create a new file and start filling it with examples as we learn them:</p>
 <pre><code class="language-bash">nano examples.sh
 </code></pre>
@@ -926,7 +907,7 @@ greeting=Hello
 subject=World
 echo &quot;$greeting, $subject!&quot;
 </code></pre>
-<p>You can then save this file and make it executable using the <code>chmod +x</code> command from before to give it a try. From here on, feel free to edit <code>examples.sh</code> using the <code>nano</code> command as you see fit, such as by appending the new examples to the end of the file or by deleting the previous example each time. </p>
+<p>You can then save this file and make it executable using the <code>chmod +x</code> command from before to give it a try. From here on, feel free to edit <code>examples.sh</code> using the <code>nano</code> command as you see fit, such as by appending the new examples to the end of the file or by deleting the previous example. </p>
 <h3 id="arithmetic">Arithmetic</h3>
 <p>Bash supports the following operators for mathmatic arithmetic:
 | Operator | Use            |
@@ -951,14 +932,15 @@ echo &quot;c=$c, d=$d, e=$e&quot;
 <p><strong>Output:</strong></p>
 <pre><code class="language-bash">c=20, d=3200000, e=0
 </code></pre>
-<p>Note that by default, bash <em>only</em> returns integer values. In order to return floating point values you'd need to use another tool such as <code>bc</code>. First, install <code>bc</code> with the command:</p>
+<p>By default, bash <em>only</em> returns integer values. In order to return floating point values it is necessary to use another tool such as <code>bc</code>. You can install <code>bc</code> with the command:</p>
 <pre><code class="language-bash">sudo apt install bc
 </code></pre>
 <p>Then you can add to <code>examples.sh</code>:</p>
 <pre><code class="language-bash">f=$(echo &quot;scale=5; 22 / 7&quot; | bc)
 echo $f
 </code></pre>
-<p><strong>Output:</strong></p>
+<p>(<code>scale</code> specifies the number of decimal places to return in the output.)
+<strong>Output:</strong></p>
 <pre><code>3.14285
 </code></pre>
 <h3 id="user-inputs">User Inputs</h3>
@@ -985,8 +967,10 @@ then
     statement
 fi
 </code></pre>
-<p>This block will the statement if the expression is evaluated as true.
-2. <code>if-else</code></p>
+<p>This block will run the statement if the expression is evaluated as true.</p>
+<ol>
+<li><code>if-else</code></li>
+</ol>
 <pre><code class="language-bash">if [ expression ]
 then
     statement1
@@ -994,8 +978,10 @@ else
     statement2
 fi
 </code></pre>
-<p>If the expression is true, the first statement will run, otherwise the second statement will.
-3. Else If ladder</p>
+<p>If the first expression is true, the first statement will run, otherwise the second statement will.</p>
+<ol>
+<li>Else If ladder</li>
+</ol>
 <pre><code class="language-bash">if [ expression1 ]
 then
     statement1
@@ -1023,7 +1009,7 @@ else
     fi
 fi
 </code></pre>
-<p>This allows you to check an initial condition, and then check for a second condition based on the results of the first. It is possible to nest several conditions.</p>
+<p>This allows you to check an initial condition, and then check for a second condition based on the results of the first. It is possible to nest an arbitrary number of conditons.</p>
 <ol>
 <li>Case statments
 With a <code>case</code> statement, you are able to match patterns condtionally and return different results depending on the match. After finding a match, all associated statements are executed until reaching a <code>;;</code>. If no match is found, the exit status of the case is set as zero.</li>
@@ -1035,24 +1021,71 @@ With a <code>case</code> statement, you are able to match patterns condtionally 
 esac
 </code></pre>
 <h4 id="conditional-operators">Conditional Operators</h4>
-<p>There are several possible conditional operators that can be used to test numerical arguments, files, and strings. To test numerical arguments, you can reference the following table:
-| Operator | Meaning                  |
-|---       |---                       |
-|<code>-eq</code>     | Equal to                 |
-|<code>-ne</code>     | Not equal to             |
-|<code>-gt</code>     | Greater than             |
-|<code>-ge</code>     | Greater than or equal to |
-|<code>-lt</code>     | Less than                |
-|<code>-le</code>     | Less than or equal to    |
-<a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Click here for a complete list of bash operators and how to use them.</a></p>
+<p>There are several possible conditional operators that can be used to test numerical arguments, files, and strings. To test numerical arguments, you can reference the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-eq</code></td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td><code>-ne</code></td>
+<td>Not equal to</td>
+</tr>
+<tr>
+<td><code>-gt</code></td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td><code>-ge</code></td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td><code>-lt</code></td>
+<td>Less than</td>
+</tr>
+<tr>
+<td><code>-le</code></td>
+<td>Less than or equal to</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Click here for a complete list of bash operators and how to use them.</a></p>
 <h3 id="logical-operators">Logical Operators</h3>
-<p>Logical operators allow for you to combine or negate conditional expressions.
-| Operator | Meaning                         | Example                           |
-| ---      | ---                             | ---                               |
-|<code>&amp;&amp;</code>      | Logical AND (both must be true) | <code>[ $a -gt 5 ] &amp;&amp; [ $b -lt 10 ]</code>   |
-|<code>\|\|</code>    | Logical OR (either can be true) | <code>[ $a -lt 5 ] \|\| [ $b -eq 10 ]</code> |
-| <code>!</code>      | Logical NOT (negates condition) | <code>! [ -f file.txt ]</code>               |
-You can also group conditions using double square brackets and logical keywords:</p>
+<p>Logical operators allow for you to combine or negate conditional expressions.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>Logical AND (both must be true)</td>
+<td><code>[ $a -gt 5 ] &amp;&amp; [ $b -lt 10 ]</code></td>
+</tr>
+<tr>
+<td><code>\|\|</code></td>
+<td>Logical OR (either can be true)</td>
+<td><code>[ $a -lt 5 ] \|\| [ $b -eq 10 ]</code></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>Logical NOT (negates condition)</td>
+<td><code>! [ -f file.txt ]</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can also group conditions using double square brackets and logical keywords:</p>
 <pre><code class="language-bash">if [[ $a -gt 5 &amp;&amp; $b -lt 10 ]]
 then
     echo &quot;Both conditions are true.&quot;
@@ -1153,7 +1186,7 @@ done
 6
 7
 </code></pre>
-<h2 id="using-shell-scripts-to-manipulate-files">Using shell scripts to manipulate files</h2>
+<hr />
 <p>Now that we have a basic understanding of the syntax of shell scripting, let's try putting it to use using our example files. <a href="../10_script_example/">Click here to continue on to the next section</a> where we'll put this lesson to work with a shell script.</p>
 
 

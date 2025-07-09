@@ -1374,9 +1374,9 @@
 <h1 id="using-grep-to-search-inside-files">Using <code>grep</code> to Search Inside Files</h1>
 <p>The <code>grep</code> command (a contraction of "global/regular expression/print") allows for searching through text files with commands to perform simple or recursive searches, while also allowing for multiple search terms, the ability to count matches, and even allowing users to pipe the output to other commands for further manipulation.</p>
 <p>The basic syntax of <code>grep</code> follows:</p>
-<pre><code class="language-bash">grep [OPTIONS] PATTERNS [FILES]
+<pre><code class="language-bash">grep [OPTIONS] [PATTERNS] [FILES]
 </code></pre>
-<p><code>grep</code> will then search for the given <code>PATTERN</code> in each of the listed files, and then by default will simply print the related line. The available options for <code>grep</code> are separated into 4 different groups:</p>
+<p><code>grep</code> will then search for the given <code>PATTERN</code> in each of the listed files, and by default will then simply print the related line. The available options for <code>grep</code> are separated into 4 different groups:</p>
 <h2 id="1-pattern-selection-and-interpretation">1: Pattern Selection and Interpretation</h2>
 <p>These options define how <code>grep</code> understands and applies your search pattern, allowing you to switch between simple string matching and the more powerful regular expressions, as well as allowing you to control case sensitivity and match boundaries. The most common options you'll use here are:</p>
 <h3 id="-i-ignore-case"><code>-i</code>/<code>--ignore-case</code></h3>
@@ -1392,12 +1392,17 @@ Triangulum, Triangulum, Spiral,
 <p>Match with a whole word.</p>
 <pre><code class="language-bash">grep -w 'Al' ./local-universe/milky-way/constellations.csv
 </code></pre>
-<p>This will match the line containing "Al Tarf", while ignoring "Aldebaran".</p>
 <p><strong>Output:</strong></p>
 <pre><code class="language-bash">Cancer, Al Tarf,
 </code></pre>
+<p>Without the <code>-w</code>, <code>grep</code> would return:</p>
+<pre><code class="language-bash">Taurus, Aldebaran,
+Cancer, Al Tarf,
+Capricornus, Deneb Algedi,
+Pisces, Alpherg
+</code></pre>
 <h3 id="-e-extended-regexp"><code>-E</code>/<code>--extended-regexp</code></h3>
-<p>Allows your <code>PATTERN</code> to be interpreted as an <strong>extended regular expression</strong>. This allows for more complex syntax like <code>+</code>, <code>?</code>, and <code>|</code> without needing backslashes. For instance, to find entries that start with either "A" or "S":</p>
+<p>Allows your <code>PATTERN</code> to be interpreted as an <strong>extended regular expression</strong>. This allows for more complex syntax like <code>+</code>, <code>?</code>, and <code>|</code> without needing backslashes. For instance, to find entries that start with either "A" or "S", you could use an expression like:</p>
 <pre><code class="language-bash">grep -E '^(A|S)' ./local-universe/milky-way/constellations.csv
 </code></pre>
 <p><strong>Output:</strong></p>
@@ -1415,7 +1420,7 @@ Aquarius, Sadalsuud,
 Pisces, Alpherg
 </code></pre>
 <h3 id="-f-file-filefile"><code>-f FILE</code>/<code>--file=FILE</code></h3>
-<p>Loads one pattern per line, comparing each line against the given file.</p>
+<p>This allows you to use a file to provide the search patterns, loading one pattern per line.</p>
 <p>Let's say we know a couple of the brightest stars in some constellations, but don't know the names of the constellations themselves. We can create a pattern file:</p>
 <pre><code class="language-bash">nano pattern.txt
 </code></pre>
@@ -1439,13 +1444,13 @@ Capricornus, Deneb Algedi,
 Pisces, Alpherg
 </code></pre>
 <h3 id="-f-fixed-strings"><code>-F</code>/<code>--fixed-strings</code></h3>
-<p>Treats your pattern as a <strong>literal string</strong> instead of a regular expression. This is faster for simple, exact matches.</p>
+<p>Treats your pattern as a <strong>literal string</strong> instead of a regular expression. A literal string is a search pattern that is matched <strong>exactly as written</strong> without treating any characters as special.</p>
 <h3 id="-g-basic-regexp"><code>-G</code>/<code>--basic-regexp</code></h3>
 <p>Uses <em>basic</em> regular expressions, and is the default mode of <code>grep</code> unless overridden by other options. Special characters require escaping with this option.</p>
 <h3 id="-no-ignore-case"><code>--no-ignore-case</code></h3>
-<p>Explicitly disable case-insensitive matching. This can be useful when searching for lines that might contain the same spelling but with different capitalisation, like <code>Leo Aa</code> vs <code>Leo AA</code>.</p>
+<p>Explicitly disable case-insensitive matching. This can be useful when searching for lines that might contain the same spelling but with different capitalisation, such as <code>LEO</code> vs <code>Leo</code>.</p>
 <h3 id="-x-line-regexp"><code>-x</code>/<code>--line-regexp</code></h3>
-<p>Matches <strong>entire lines</strong> exactly. </p>
+<p>Matches <strong>entire lines</strong> exactly.</p>
 <h3 id="-z-null-data"><code>-z</code>/<code>--null-data</code></h3>
 <p>Treat input as null-delimited. This option is useful for special binary or structured formats. Each "line" ends in a null byte (<code>\0</code>) instead of a newline.</p>
 <h2 id="2-miscellaneous">2: Miscellaneous</h2>
@@ -1525,19 +1530,35 @@ Spiral
 <pre><code class="language-bash">Spiral found.
 </code></pre>
 <h3 id="-binary-filestype"><code>--binary-files=TYPE</code></h3>
-<p>Choose how to handle binary files.
-* <code>binary</code>: Treat as binary (default).
-* <code>text</code>: Treat as if plain text.
-* <code>without-match</code>: Silently skip binary files.</p>
+<p>Choose how to handle binary files.</p>
+<ul>
+<li>
+<p><code>binary</code>: Treat as binary (default).</p>
+</li>
+<li>
+<p><code>text</code>: Treat as if plain text.</p>
+</li>
+<li>
+<p><code>without-match</code>: Silently skip binary files.</p>
+</li>
+</ul>
 <blockquote>
-<p><code>a</code>/<code>--text</code> are equivalent to <code>--binary-files=text</code></p>
+<p>NOTE: <code>a</code>/<code>--text</code> are equivalent to <code>--binary-files=text</code></p>
 <p><code>-I</code> is equivalent to <code>--binary-files=without-match</code></p>
 </blockquote>
 <h3 id="-d-action-directoriesaction"><code>-d ACTION</code>/<code>--directories=ACTION</code></h3>
-<p>Allows you to choose what to do with directories.
-* <code>read</code>: Read them as files.
-* <code>recurse</code>: Search inside of them recursively.
-* <code>skip</code>: Ignore them (this is the default unless <code>-r</code> is used).</p>
+<p>Allows you to choose what to do with directories.</p>
+<ul>
+<li>
+<p><code>read</code>: Read them as files.</p>
+</li>
+<li>
+<p><code>recurse</code>: Search inside of them recursively.</p>
+</li>
+<li>
+<p><code>skip</code>: Ignore them (this is the default unless <code>-r</code> is used).</p>
+</li>
+</ul>
 <h3 id="-d-action-devicesaction"><code>-D ACTION</code>/<code>--devices=ACTION</code></h3>
 <p>Similar to <code>-d</code>, but for device files, FIFOs, or sockets.</p>
 <h3 id="-r-recursive"><code>-r</code>/<code>--recursive</code></h3>
@@ -1550,7 +1571,7 @@ Spiral
 <h3 id="-r-dereference-recursive"><code>-R</code>/<code>--dereference-recursive</code></h3>
 <p>Like <code>-r</code>, but <strong>does</strong> follow symlinks.</p>
 <h3 id="-includeglob"><code>--include=GLOB</code></h3>
-<p>Restrict search to files matching a glob pattern. For instance, if you only wish to search inside of .txt files, you can run something like:</p>
+<p>Restrict search to files matching a glob pattern. For instance, if you only wish to search inside of <code>.txt</code> files, you can run something like:</p>
 <pre><code class="language-bash">grep -r --include=&quot;*.txt&quot; 'Hamal'
 </code></pre>
 <p><strong>Output:</strong></p>
@@ -1647,10 +1668,18 @@ Milky Way (Center), Sagittarius, Spiral,
 <p>Suppresses the line between context-separated match blocks entirely.</p>
 <p>These options are useful when post-processing <code>grep</code> output and want consistent formatting or no interruptions between context groups.</p>
 <h3 id="-colorwhen-colourwhen"><code>--color[=WHEN]</code>/<code>--colour[=WHEN]</code></h3>
-<p>Highlight matching text using ANSI escape sequences. <code>WHEN</code> can be:
-* <code>always</code>: Force color, even when not writing to a terminal.
-* <code>never</code>: Disable color.
-* <code>auto</code>: Color only if output goes to a terminal.</p>
+<p>Highlight matching text using ANSI escape sequences. <code>WHEN</code> can be:</p>
+<ul>
+<li>
+<p><code>always</code>: Force color, even when not writing to a terminal.</p>
+</li>
+<li>
+<p><code>never</code>: Disable color.</p>
+</li>
+<li>
+<p><code>auto</code>: Color only if output goes to a terminal.</p>
+</li>
+</ul>
 <p>Most modern terminal setups default to <code>--color=auto</code>.</p>
 <h3 id="-u-binary"><code>-U</code>/<code>--binary</code></h3>
 <p>Disable stripping of <code>\r</code> (carriage return) characters at the end of lines. This is useful when dealing with files from Windows systems (CRLF line endings). This option helps preserve exact formatting in mixed-platform environments.</p>
