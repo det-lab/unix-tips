@@ -1,16 +1,15 @@
 site_name: Working with the Unix Shell
 nav:
-  - Home: index.md
-  - Introduction: 01_summary_and_setup.md
-  - Navigation: 02_navigation.md
-  - Command History: 03_command_history.md
-  - File Operations: 04_file_operations.md
-  - Creating Examples: 05_creating_example_files.md
-  - Searching for Files: 06_searching_for_files.md
-  - Searching in Files: 07_searching_inside_files.md
-  - Editing Files: 08_editing_files.md
-  - Shell Scripting: 09_shell_scripts.md
-  - Putting it together: 10_script_example.md
+  - Introduction: index.md
+  - Navigation: 01_navigation.md
+  - Command History: 02_command_history.md
+  - File Operations: 03_file_operations.md
+  - Creating Examples: 04_creating_example_files.md
+  - Searching for Files: 05_searching_for_files.md
+  - Searching in Files: 06_searching_inside_files.md
+  - Editing Files: 07_editing_files.md
+  - Shell Scripting: 08_shell_scripts.md
+  - Putting it together: 09_script_example.md
 theme: 
   name: material
 
