@@ -1,20 +1,11 @@
-## Project layout
-**Created by Adrian Fisher**
+# Summary
+The Unix shell is more than just a way to launch programs: it's a powerful environment for automating tasks, managing files, and interacting with your system efficiently. Whether you're using `bash`, `zsh`, or another variant, Unix shells have the versatility to become a highly personalized and productive workspace when you understand how to use it effectively. 
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md                     # The documentation homepage.
-        01_summary_and_setup.md      # Introduction
-        02_navigation.md             # Tips for navigating file system
-        03_command_history.md        # Tips for utilizing command history
-        04_file_operations.md        # Tips for organizing files
-        05_creating_example_files.md # Creating files for examples
-        06_searching_for_files.md    # Tips on how to search for files
-        07_searching_inside_files.md # Tips on searching for content inside files
-        08_editing_files.md          # Explaining ways to edit the content inside files
-        09_shell_scripts.md          # Learning how to script with the shell
-        10_script_example.md         # Putting it all together
-        examples/
-            constellations.csv 
-            galaxies.csv
-            planets.csv
+In this short series of lessons, we'll cover practical tips and time-saving techniques for working in the shell, such as shortcuts for navigating directories, accessing your command history, interacting with files and directories, editing files directly, interpreting the UI colors, and creating and running personalized shell scripts. 
+
+# Install Software
+If you do not already have it installed, [click this link](https://carpentries.github.io/workshop-template/install_instructions/#shell) for instructions on how to download and install the Bash shell for Windows, MacOS, or Linux. 
+
+---
+
+[Click here](01_navigation.md) to continue to the next section where we will go over tips for navigating directories with the Unix shell.
