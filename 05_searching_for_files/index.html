@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../05_creating_example_files/">
+        <link rel="prev" href="../04_creating_example_files/">
       
       
-        <link rel="next" href="../07_searching_inside_files/">
+        <link rel="next" href="../06_searching_inside_files/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -199,28 +199,6 @@
   
   
   <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01_summary_and_setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     Introduction
     
   </span>
@@ -238,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_navigation/" class="md-nav__link">
+      <a href="../01_navigation/" class="md-nav__link">
         
   
   
@@ -260,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_command_history/" class="md-nav__link">
+      <a href="../02_command_history/" class="md-nav__link">
         
   
   
@@ -282,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_file_operations/" class="md-nav__link">
+      <a href="../03_file_operations/" class="md-nav__link">
         
   
   
@@ -304,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_creating_example_files/" class="md-nav__link">
+      <a href="../04_creating_example_files/" class="md-nav__link">
         
   
   
@@ -717,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_searching_inside_files/" class="md-nav__link">
+      <a href="../06_searching_inside_files/" class="md-nav__link">
         
   
   
@@ -739,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_editing_files/" class="md-nav__link">
+      <a href="../07_editing_files/" class="md-nav__link">
         
   
   
@@ -761,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_shell_scripts/" class="md-nav__link">
+      <a href="../08_shell_scripts/" class="md-nav__link">
         
   
   
@@ -783,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_script_example/" class="md-nav__link">
+      <a href="../09_script_example/" class="md-nav__link">
         
   
   
@@ -1169,7 +1147,7 @@
 
 <h1 id="using-find-to-search-filenames">Using <code>find</code> to Search Filenames</h1>
 <p>The <code>find</code> command recursively searches for files by name, type, size, or modification time. By default, the command prints the names of the files for which your entire expression is <code>true</code>.</p>
-<p><code>find</code> searches your directory tree rooted from a given starting point, evaluating the given expression from left to right until the outcome is determined as <code>True</code> or <code>False</code>, at which point <code>find</code> moves on to the next file. Without a specified search root, the current directory, <code>.</code>, is assumed. Also, if a starting point argument would normally begin with <code>-</code>, <code>find</code> would try to treat it instead as an expression. For this reason, it is generally safer to prefix any wildcard or dubius path names with <code>./</code>, or to use absolute paths such as <code>/home/user/Unix-Tips</code>.</p>
+<p><code>find</code> searches your directory tree rooted from a given starting point, evaluating the given expression from left to right until the outcome is determined as <code>True</code> or <code>False</code>, at which point <code>find</code> moves on to the next file. Without a specified search root, the current directory, <code>.</code>, is assumed. Also, if a starting point argument would normally begin with <code>-</code>, <code>find</code> would try to treat it instead as an expression. For this reason, it is generally safer to prefix any wildcard or dubious path names with <code>./</code>, or to use absolute paths such as <code>/home/user/Unix-Tips</code>.</p>
 <p>The <code>find</code> command follows the format:</p>
 <pre><code class="language-bash">find [PATH] [EXPRESSION]
 </code></pre>
@@ -1352,7 +1330,7 @@ local-universe/milky-way
 <h2 id="4-operators">4. <code>operators</code>:</h2>
 <p><code>find</code> allows for you to combine multiple tests using <strong>logical operators</strong> such as <strong>AND</strong>, <strong>OR</strong>, and <strong>NOT</strong>. These combinations can then also be grouped with parentheses. <code>operators</code> can be very powerful for creating more precise search expressions:</p>
 <h3 id="-and-aspace"><code>-and</code>/<code>-a</code>/space</h3>
-<p><strong>All expressions</strong> must be true. This is the defualt behavior of <code>find</code>: listing conditions with spaces will automatically assume <code>-and</code>, but it can be writen explicitely.</p>
+<p><strong>All expressions</strong> must be true. This is the default behavior of <code>find</code>: listing conditions with spaces will automatically assume <code>-and</code>, but it can be written explicitly.</p>
 <pre><code class="language-bash">find . -type f -and -name &quot;*.csv&quot;
 </code></pre>
 <p>This is equivalent to:</p>
@@ -1394,7 +1372,7 @@ local-universe/milky-way
 </li>
 </ol>
 <hr />
-<p>Now that we have a better handle on searching for specific files, <a href="../07_searching_inside_files/">click here to continue on to the next section</a> to learn how to search for specific text inside of your files.</p>
+<p>Now that we have a better handle on searching for specific files, <a href="../06_searching_inside_files/">click here to continue on to the next section</a> to learn how to search for specific text inside of your files.</p>
 
 
 

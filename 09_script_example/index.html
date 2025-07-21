@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../02_navigation/">
+        <link rel="prev" href="../08_shell_scripts/">
       
-      
-        <link rel="next" href="../04_file_operations/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Command History - Working with the Unix Shell</title>
+        <title>Putting it together - Working with the Unix Shell</title>
       
     
     
@@ -62,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#command-history-and-quick-recall-tools" class="md-skip">
+        <a href="#scripting-example" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Command History
+              Putting it together
             
           </span>
         </div>
@@ -199,28 +197,6 @@
   
   
   <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01_summary_and_setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     Introduction
     
   </span>
@@ -238,12 +214,166 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_navigation/" class="md-nav__link">
+      <a href="../01_navigation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_command_history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_file_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_creating_example_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_searching_for_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching for Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_searching_inside_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching in Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_editing_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_shell_scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell Scripting
     
   </span>
   
@@ -269,212 +399,7 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Command History
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Command History
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-history-navigation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic History Navigation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reverse-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reverse search
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_file_operations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    File Operations
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05_creating_example_files/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Creating Examples
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06_searching_for_files/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Searching for Files
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07_searching_inside_files/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Searching in Files
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08_editing_files/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Editing Files
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09_shell_scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Shell Scripting
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10_script_example/" class="md-nav__link">
         
   
   
@@ -485,6 +410,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -509,32 +435,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-history-navigation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic History Navigation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reverse-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reverse search
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -549,59 +449,136 @@
 
 
 
-<h1 id="command-history-and-quick-recall-tools">Command History and Quick Recall Tools</h1>
-<p>Typing the same long commands over and over can get tedious and error prone. Fortunately, Unix shells keep a <strong>command history</strong> that lets you easily recall, repeat, and modify previous commands. This section covers essential shortcuts and tools to speed up your workflow.</p>
-<h2 id="basic-history-navigation">Basic History Navigation</h2>
-<ul>
-<li>
-<p>Press the up arrow to scroll through previous commands.</p>
-</li>
-<li>
-<p>Press the down arrow to move forward again.</p>
-</li>
-</ul>
-<p>You can also view a full numbered history of your previous commands with:</p>
-<pre><code class="language-bash">history
+<h1 id="scripting-example">Scripting Example</h1>
+<p>We've now learned how to use the Unix shell to navigate our folder system, to create and delete files, create and delete folders, copy, move, and rename files and folders, to search for and inside of files, how to edit the contents of files, and finally how to create and run shell scripts to automate any and all of these processes. Let's try now to put together some of these abilities of the Unix shell and create a script to manipulate the contents of our <code>Unix-Tips</code> folder. If you've been following along with the examples provided in this lesson, your folder tree should look similar to:</p>
+<pre><code class="language-bash">├── csv_list.txt
+├── examples.sh
+├── exclude-pattern.txt
+├── hello.sh
+├── kilogram-replacement.txt
+├── local-universe
+│   ├── galaxies.csv
+│   └── milky-way
+│       ├── constellations.csv
+│       ├── planets.csv
+│       └── planets.csv.bak
+└── pattern.txt
+
+2 directories, 10 files
 </code></pre>
-<h2 id="reverse-search">Reverse search</h2>
-<p>Unix supports a reverse search, allowing you to find previous commands by typing in a segment of them. From the shell, press <code>CTRL+R</code> to begin a reverse search. You can then start typing a previous command and the shell will search backward through your history, autocompleting your search on the command line.</p>
-<ul>
+<p>In order to demonstrate some ways we can use shell scripts to edit files and folders, let's say that we want to create a script to accomplish the following goals with the contents of this folder:</p>
+<ol>
 <li>
-<p>Keep pressing <code>CTRL+R</code> to cycle through more matches.</p>
+<p>Delete all of the <code>.txt</code> files</p>
 </li>
 <li>
-<p>Press <code>CTRL+S</code> to search forward</p>
+<p>Restore the original version of <code>planets.csv</code></p>
 </li>
 <li>
-<p>Press <code>Enter</code> to run the found command.</p>
+<p>Move <code>planets.csv</code> into a new <code>solar-system</code> folder</p>
 </li>
 <li>
-<p>Press <code>Esc</code> or <code>CTRL+G</code> to cancel the search.</p>
+<p>Change uppercase characters to lowercase for all <code>.csv</code> files.</p>
 </li>
-</ul>
-<h1 id="using-fish">Using <code>Fish</code></h1>
-<p>The Fish shell offers even more intuitive and powerful history navigation tools than supported by a base Unix installation. You can download Fish by following <a href="https://fishshell.com/">this link to the official site</a>, or in the shell you can run the command:</p>
-<pre><code class="language-bash">sudo apt install fish
+</ol>
+<p>Let's name our new script <code>reformat-folder.sh</code>:</p>
+<pre><code class="language-bash">nano reformat-folder.sh
 </code></pre>
-<p>Once installed, you only need to enter <code>fish</code> on the command line to get started. </p>
-<p>The Fish shell allows you to begin typing any part of a previous command, and it will automatically suggest matching commands from your history. You can then press the <strong>up arrow</strong> or <strong>down arrow</strong> to search through your matching command history. Then, press the <strong>right arrow</strong> to accept the suggestion, and <strong>Enter</strong> to run the command.</p>
-<p>Fish also includes advanced history commands:</p>
-<ul>
-<li>
-<p><code>history search &lt;pattern&gt;</code> shows matching commands. For instance, <code>history search cd</code> would show you each command you've used to change directories in your saved history.</p>
-</li>
-<li>
-<p><code>history delete --prefix &lt;pattern&gt;</code> deletes entries from your history that start with a given prefix.</p>
-</li>
-</ul>
 <blockquote>
-<p>NOTE:  Note: Fish keeps a separate history <strong>per session</strong> and <strong>per working directory</strong>, making it especially useful for project-based work.</p>
+<p>NOTE: When first creating a code it's useful to print statements (using <code>echo</code> for shell) for every step. This is makes it easier to find at what step an error occurs if you run into one.</p>
 </blockquote>
-<p>Fish also helpfully uses syntax highlighting as you type. By default, Fish will color invalid commands red as you write them, and underline valid file paths.</p>
-<h2 id="view-and-edit-commands-before-running">View and Edit Commands Before Running</h2>
-<p>You can use <code>fc</code> (fix command) to open your previous command in your default editor, such as <code>nano</code>, <code>vim</code>, or <code>emacs</code>. This can be useful for making edits to long or complex commands before re-running them.</p>
-<hr />
-<p>Now that you can navigate and reuse your command history efficiently, we'll move on to <strong>file operations</strong>: copying, moving, renaming, and deleting files using the shell. <a href="../04_file_operations/">Click here to continue on to the next section.</a></p>
+<pre><code class="language-bash">#! /usr/bin/bash
+
+# Set existing folders as variables for easier use
+local_dir=&quot;./local-universe/&quot;
+galaxy_dir=$local_dir&quot;milky-way/&quot;
+
+# Delete all .txt files
+echo &quot;Deleting .txt files...&quot;
+find . -type f -name &quot;*.txt&quot; -delete
+
+# Forcefully overwrite planets.csv with the backup
+echo &quot;Restoring file from backup...&quot;
+src=$galaxy_dir&quot;planets.csv.bak&quot;
+dest=$galaxy_dir&quot;planets.csv&quot;
+cp -f &quot;$src&quot; &quot;$dest&quot;
+# Note: quoting variable names for paths is useful if the path contains spaces
+
+# Create a new folder for planets.csv
+echo &quot;Creating new folder...&quot;
+solar_dir=$galaxy_dir&quot;solar-system/&quot;
+mkdir -p &quot;$solar_dir&quot;
+
+# Move planets.csv into the new folder
+echo &quot;Moving planets.csv...&quot;
+src2=$galaxy_dir&quot;planets.csv&quot;
+dest2=$solar_dir&quot;planets.csv&quot;
+mv &quot;$src2&quot; &quot;$dest2&quot;
+
+# Delete .bak file
+echo &quot;Deleting planets.csv.bak...&quot;
+bak_path=$galaxy_dir&quot;planets.csv.bak&quot;
+rm &quot;$bak_path&quot;
+
+# Loop through all .csv files and make everything lowercase
+echo &quot;Creating lowercase versions of all .csv files...&quot;
+find local-universe/ -type f -name &quot;*.csv&quot; | while read -r csv_file; do
+    # Extract base name and directory
+    dir_name=$(dirname &quot;$csv_file&quot;)
+    base_name=$(basename &quot;$csv_file&quot; .csv)
+
+    # Define lowercase output filename
+    out_file=&quot;${dir_name}/${base_name}-lowercase.csv&quot;
+
+    # Check if file is not already lowercase version
+    if [[ ! &quot;$csv_file&quot; =~ lowercase\.csv$ ]]; then
+        echo &quot; Changing case: $csv_file -&gt; $out_file&quot;
+        tr '[:upper:]' '[:lower:]' &lt; &quot;$csv_file&quot; &gt; &quot;$out_file&quot;
+    fi
+done
+
+# Optional: Delete all non-lowercase versions of the files
+echo &quot;Deleting original .csv files...&quot;
+for file in $(find . -type f -name &quot;*.csv&quot;); do
+    if [[ &quot;$file&quot; != *-lowercase.csv ]]; then
+        echo &quot;Deleting $file&quot;
+        rm &quot;$file&quot;
+    fi
+done
+
+echo &quot;Script complete!&quot;
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Deleting .txt files...
+Restoring file from backup...
+Creating new folder...
+Moving planets.csv...
+Deleting planets.csv.bak...
+Creating lowercase versions of all .csv files...
+ Changing case: local-universe/galaxies.csv -&gt; local-universe/galaxies-lowercase.csv
+ Changing case: local-universe/milky-way/constellations.csv -&gt; local-universe/milky-way/constellations-lowercase.csv
+ Changing case: local-universe/milky-way/solar-system/planets.csv -&gt; local-universe/milky-way/solar-system/planets-lowercase.csv
+Deleting original .csv files...
+Deleting ./local-universe/galaxies.csv
+Deleting ./local-universe/milky-way/constellations.csv
+Deleting ./local-universe/milky-way/solar-system/planets.csv
+Script complete!
+</code></pre>
+<p>You can then double check the script's work by running <code>tree</code>:</p>
+<p><strong>Output</strong></p>
+<pre><code class="language-bash">├── examples.sh
+├── hello.sh
+├── local-universe
+│   ├── galaxies-lowercase.csv
+│   └── milky-way
+│       ├── constellations-lowercase.csv
+│       └── solar-system
+│           └── planets-lowercase.csv
+└── reformat-folder.sh
+</code></pre>
+<h1 id="wrapping-up">Wrapping up</h1>
+<p>This short and simple script demonstrates some of the utility of the Unix shell when paired with scripting. A few lines of code allowed us to clean up files, restore backups, reorganize folders, and transform file contents, all automatically. While the script we wrote here is specific to the structure of this lesson, the techniques used here are widely applicable to any kind of filesystem or data maintenance task.</p>
+<p>With careful use of conditionals, loops, and external tools, we can build reliable, repeatable processes that can save time and reduce human error. This is the core strength of Unix: simple commands that combine into powerful tools. As you continue learning, try experimenting with your own scripts to automate parts of your workflow and explore what the shell has to offer.</p>
 
 
 

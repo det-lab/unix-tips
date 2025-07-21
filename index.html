@@ -10,7 +10,7 @@
       
       
       
-        <link rel="next" href="01_summary_and_setup/">
+        <link rel="next" href="01_navigation/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-layout" class="md-skip">
+        <a href="#summary" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Introduction
             
           </span>
         </div>
@@ -198,70 +198,10 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="." class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="01_summary_and_setup/" class="md-nav__link">
         
   
   
@@ -272,6 +212,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -283,7 +224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02_navigation/" class="md-nav__link">
+      <a href="01_navigation/" class="md-nav__link">
         
   
   
@@ -305,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03_command_history/" class="md-nav__link">
+      <a href="02_command_history/" class="md-nav__link">
         
   
   
@@ -327,7 +268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04_file_operations/" class="md-nav__link">
+      <a href="03_file_operations/" class="md-nav__link">
         
   
   
@@ -349,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05_creating_example_files/" class="md-nav__link">
+      <a href="04_creating_example_files/" class="md-nav__link">
         
   
   
@@ -371,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06_searching_for_files/" class="md-nav__link">
+      <a href="05_searching_for_files/" class="md-nav__link">
         
   
   
@@ -393,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07_searching_inside_files/" class="md-nav__link">
+      <a href="06_searching_inside_files/" class="md-nav__link">
         
   
   
@@ -415,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08_editing_files/" class="md-nav__link">
+      <a href="07_editing_files/" class="md-nav__link">
         
   
   
@@ -437,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09_shell_scripts/" class="md-nav__link">
+      <a href="08_shell_scripts/" class="md-nav__link">
         
   
   
@@ -459,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10_script_example/" class="md-nav__link">
+      <a href="09_script_example/" class="md-nav__link">
         
   
   
@@ -491,23 +432,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -523,28 +449,13 @@
 
 
 
-  <h1>Home</h1>
-
-<h2 id="project-layout">Project layout</h2>
-<p><strong>Created by Adrian Fisher</strong></p>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md                     # The documentation homepage.
-    01_summary_and_setup.md      # Introduction
-    02_navigation.md             # Tips for navigating file system
-    03_command_history.md        # Tips for utilizing command history
-    04_file_operations.md        # Tips for organizing files
-    05_creating_example_files.md # Creating files for examples
-    06_searching_for_files.md    # Tips on how to search for files
-    07_searching_inside_files.md # Tips on searching for content inside files
-    08_editing_files.md          # Explaining ways to edit the content inside files
-    09_shell_scripts.md          # Learning how to script with the shell
-    10_script_example.md         # Putting it all together
-    examples/
-        constellations.csv 
-        galaxies.csv
-        planets.csv
-</code></pre>
+<h1 id="summary">Summary</h1>
+<p>The Unix shell is more than just a way to launch programs: it's a powerful environment for automating tasks, managing files, and interacting with your system efficiently. Whether you're using <code>bash</code>, <code>zsh</code>, or another variant, Unix shells have the versatility to become a highly personalized and productive workspace when you understand how to use it effectively. </p>
+<p>In this short series of lessons, we'll cover practical tips and time-saving techniques for working in the shell, such as shortcuts for navigating directories, accessing your command history, interacting with files and directories, editing files directly, interpreting the UI colors, and creating and running personalized shell scripts. </p>
+<h1 id="install-software">Install Software</h1>
+<p>If you do not already have it installed, <a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">click this link</a> for instructions on how to download and install the Bash shell for Windows, MacOS, or Linux. </p>
+<hr />
+<p><a href="01_navigation/">Click here</a> to continue to the next section where we will go over tips for navigating directories with the Unix shell.</p>
 
 
 

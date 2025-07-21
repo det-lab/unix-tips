@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../08_editing_files/">
+        <link rel="prev" href="../07_editing_files/">
       
       
-        <link rel="next" href="../10_script_example/">
+        <link rel="next" href="../09_script_example/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -199,28 +199,6 @@
   
   
   <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01_summary_and_setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     Introduction
     
   </span>
@@ -238,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_navigation/" class="md-nav__link">
+      <a href="../01_navigation/" class="md-nav__link">
         
   
   
@@ -260,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_command_history/" class="md-nav__link">
+      <a href="../02_command_history/" class="md-nav__link">
         
   
   
@@ -282,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_file_operations/" class="md-nav__link">
+      <a href="../03_file_operations/" class="md-nav__link">
         
   
   
@@ -304,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_creating_example_files/" class="md-nav__link">
+      <a href="../04_creating_example_files/" class="md-nav__link">
         
   
   
@@ -326,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_searching_for_files/" class="md-nav__link">
+      <a href="../05_searching_for_files/" class="md-nav__link">
         
   
   
@@ -348,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_searching_inside_files/" class="md-nav__link">
+      <a href="../06_searching_inside_files/" class="md-nav__link">
         
   
   
@@ -370,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_editing_files/" class="md-nav__link">
+      <a href="../07_editing_files/" class="md-nav__link">
         
   
   
@@ -624,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_script_example/" class="md-nav__link">
+      <a href="../09_script_example/" class="md-nav__link">
         
   
   
@@ -859,7 +837,7 @@
 <p>Adding new functionality to the shell</p>
 </li>
 <li>
-<p>Automating work and repitition, etc</p>
+<p>Automating work and repetition, etc</p>
 </li>
 </ul>
 <p>Fortunately, the commands and syntax for shell scripting are the same as those entered directly in the command line, so this entire lesson so far can be applied directly in shell scripts.</p>
@@ -909,7 +887,7 @@ echo &quot;$greeting, $subject!&quot;
 </code></pre>
 <p>You can then save this file and make it executable using the <code>chmod +x</code> command from before to give it a try. From here on, feel free to edit <code>examples.sh</code> using the <code>nano</code> command as you see fit, such as by appending the new examples to the end of the file or by deleting the previous example. </p>
 <h3 id="arithmetic">Arithmetic</h3>
-<p>Bash supports the following operators for mathmatic arithmetic:
+<p>Bash supports the following operators for mathematic arithmetic:
 | Operator | Use            |
 |---       |---             |
 | <code>**</code>     | Exponentiation |
@@ -956,7 +934,7 @@ Enter the second number. 15
 10 + 15 = 25
 </code></pre>
 <h3 id="conditionals">Conditionals</h3>
-<p>Conditonal statements in bash have two componenets: a conditional statement and one or more conditional operators.</p>
+<p>Conditional statements in bash have two components: a conditional statement and one or more conditional operators.</p>
 <h4 id="conditional-statements">Conditional Statements</h4>
 <p>There are 5 available conditional statements available in bash programming, using combinations of <code>if</code>, <code>then</code>, <code>elif</code>, or <code>else</code>, as well as switch statements using <code>case</code>. </p>
 <ol>
@@ -1009,10 +987,10 @@ else
     fi
 fi
 </code></pre>
-<p>This allows you to check an initial condition, and then check for a second condition based on the results of the first. It is possible to nest an arbitrary number of conditons.</p>
+<p>This allows you to check an initial condition, and then check for a second condition based on the results of the first. It is possible to nest an arbitrary number of conditions.</p>
 <ol>
-<li>Case statments
-With a <code>case</code> statement, you are able to match patterns condtionally and return different results depending on the match. After finding a match, all associated statements are executed until reaching a <code>;;</code>. If no match is found, the exit status of the case is set as zero.</li>
+<li>Case statements
+With a <code>case</code> statement, you are able to match patterns conditionally and return different results depending on the match. After finding a match, all associated statements are executed until reaching a <code>;;</code>. If no match is found, the exit status of the case is set as zero.</li>
 </ol>
 <pre><code class="language-bash">case word in
     &quot;var1&quot;) statement1;;
@@ -1187,7 +1165,7 @@ done
 7
 </code></pre>
 <hr />
-<p>Now that we have a basic understanding of the syntax of shell scripting, let's try putting it to use using our example files. <a href="../10_script_example/">Click here to continue on to the next section</a> where we'll put this lesson to work with a shell script.</p>
+<p>Now that we have a basic understanding of the syntax of shell scripting, let's try putting it to use using our example files. <a href="../09_script_example/">Click here to continue on to the next section</a> where we'll put this lesson to work with a shell script.</p>
 
 
 
