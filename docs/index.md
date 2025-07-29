@@ -6,6 +6,8 @@ In this short series of lessons, we'll cover practical tips and time-saving tech
 # Install Software
 If you do not already have it installed, [click this link](https://carpentries.github.io/workshop-template/install_instructions/#shell) for instructions on how to download and install the Bash shell for Windows, MacOS, or Linux. 
 
+>If you are new to programming, it's recommended that you first take a few minutes to go over [this short lesson](https://det-lab.github.io/reading-documentation/) talking about how to read technical documentation.
+
 ---
 
 [Click here](01_navigation.md) to continue to the next section where we will go over tips for navigating directories with the Unix shell.
